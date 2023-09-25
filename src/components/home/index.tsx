@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { GameIntroduction } from "./GameIntroduction";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Mousewheel, HashNavigation } from "swiper/modules";
