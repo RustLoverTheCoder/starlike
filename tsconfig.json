@@ -3,5 +3,11 @@
   "compilerOptions": {
     "jsx": "preserve",
     "jsxImportSource": "react"
-  }
+  },
+  "baseUrl": ".",
+  "paths": {
+    "@components/*": ["src/components/*"],
+    "@pages/*": ["src/pages/*"],
+    "@/*": ["src/*"]
+  },
 }
