@@ -1,0 +1,18 @@
+---
+import { HomePage } from "../../components/home";
+// import Events from "../components/events/Events.vue";
+import "../../styles/global.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Starlike</title>
+  </head>
+  <body>
+    <HomePage client:idle />
+  </body>
+</html>
