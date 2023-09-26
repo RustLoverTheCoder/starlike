@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'AlibabaPuHuiTi';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(/fonts/AlibabaPuHuiTi-3-Light.woff2) format('woff2'),
+    url(/fonts/AlibabaPuHuiTi-3-Light.woff) format('woff');
+}
+
+
 @layer base {
   html,
   body {
     @apply w-full h-full;
+    font-family: AlibabaPuHuiTi, system-ui, sans-serif;
   }
 }
 
