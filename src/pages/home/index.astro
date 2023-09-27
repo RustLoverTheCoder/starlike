@@ -6,6 +6,7 @@ import Bg from "@components/home/bg/index.astro";
 import { Sky } from "@components/home/sky";
 import { Audio } from "@components/events/Audio";
 import { Name } from "@components/home/Name";
+import { AudioBtn } from "@components/home/audio";
 import "@styles/global.css";
 ---
 
@@ -23,8 +24,10 @@ import "@styles/global.css";
       <!-- <Menu client:idle /> -->
       <HomePage client:idle />
       <Bg />
+      
       <Sky client:idle />
       <Name client:idle />
+      <AudioBtn client:idle />
       <Audio client:idle />
     </div>
   </body>
