@@ -5,6 +5,7 @@ import { Header } from "@components/home/header";
 import Bg from "@components/home/bg/index.astro";
 import { Sky } from "@components/home/sky";
 import { Audio } from "@components/events/Audio";
+import { Name } from "@components/home/Name";
 import "@styles/global.css";
 ---
 
@@ -23,6 +24,7 @@ import "@styles/global.css";
       <HomePage client:idle />
       <Bg />
       <Sky client:idle />
+      <Name client:idle />
       <Audio client:idle />
     </div>
   </body>
