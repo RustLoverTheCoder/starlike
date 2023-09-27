@@ -1,8 +1,9 @@
 ---
 import "../styles/global.css";
-import Header from "../components/events/header.astro";
-import { Events } from "../components/events";
-import { Audio } from "../components/events/Audio";
+import Header from "@components/events/header.astro";
+import { Events } from "@components/events";
+import { Audio } from "@components/events/Audio";
+import { Nav } from "@components/events/Nav";
 ---
 
 <html lang="en">
@@ -18,6 +19,7 @@ import { Audio } from "../components/events/Audio";
       <Header />
       <Events client:idle />
       <Audio client:idle />
+      <Nav client:idle />
     </div>
   </body>
 </html>
