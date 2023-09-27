@@ -1,7 +1,9 @@
 ---
-import { HomePage } from "../../components/home";
-// import Events from "../components/events/Events.vue";
-import "../../styles/global.css";
+import { HomePage } from "@components/home";
+import { Menu } from "@components/home/menu";
+import { Audio } from "@components/home/audio";
+import { Header } from "@components/home/header";
+import "@styles/global.css";
 ---
 
 <html lang="en">
@@ -13,6 +15,11 @@ import "../../styles/global.css";
     <title>Starlike</title>
   </head>
   <body>
-    <HomePage client:idle />
+    <div class="w-screen h-screen relative">
+      <!-- <Header client:idle /> -->
+      <!-- <Menu client:idle /> -->
+      <HomePage client:idle />
+      <!-- <Audio client:idle /> -->
+    </div>
   </body>
 </html>
