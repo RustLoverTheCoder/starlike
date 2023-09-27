@@ -26,7 +26,7 @@ export const Events = () => {
           {/* time */}
           <div className="hy-section_time relative font-normal mb-[42px]">
             <h1 className={cn("text-white", "text-right")}>
-              <div className="relative z-10">
+              <div className="relative z-10 translate-y-4">
                 <span className="text-[135.6px] leading-none">138</span>
                 <span className="text-[48px] top-[15px]">亿年前</span>
               </div>
