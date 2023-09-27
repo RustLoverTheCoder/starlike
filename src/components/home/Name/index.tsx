@@ -27,6 +27,7 @@ export const Name = () => {
             <img
               src={i}
               alt=""
+              key={i}
               className="inline-block h-6 opacity-100 group-hover:opacity-0 mr-[10%] transition-opacity"
             />
           );
@@ -38,6 +39,7 @@ export const Name = () => {
             <img
               src={i}
               alt=""
+              key={i}
               className="inline-block h-6 opacity-0 group-hover:opacity-100 mr-[10%] transition-opacity"
             />
           );
