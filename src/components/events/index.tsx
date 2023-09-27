@@ -11,7 +11,7 @@ export const Events = () => {
       }}
     >
       <img
-        src={`/images/events/138.jpg`}
+        src={`/images/events/138.webp`}
         alt="events"
         className="w-full h-full object-cover object-center"
       />
