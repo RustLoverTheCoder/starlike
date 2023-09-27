@@ -3,6 +3,8 @@ import { HomePage } from "@components/home";
 import { Menu } from "@components/home/menu";
 import { Audio } from "@components/home/audio";
 import { Header } from "@components/home/header";
+import Bg from "@components/home/bg/index.astro";
+import { Sky } from "@components/home/sky";
 import "@styles/global.css";
 ---
 
@@ -19,6 +21,8 @@ import "@styles/global.css";
       <!-- <Header client:idle /> -->
       <!-- <Menu client:idle /> -->
       <HomePage client:idle />
+      <Bg />
+      <Sky client:idle />
       <!-- <Audio client:idle /> -->
     </div>
   </body>
