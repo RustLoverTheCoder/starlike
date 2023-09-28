@@ -8,6 +8,7 @@ import { Audio } from "@components/events/Audio";
 import { Name } from "@components/home/Name";
 import { AudioBtn } from "@components/home/audio";
 import "@styles/global.css";
+import { fade } from 'astro:transitions';
 ---
 
 <html lang="en">
@@ -23,7 +24,7 @@ import "@styles/global.css";
       <!-- <Header client:idle /> -->
       <!-- <Menu client:idle /> -->
       <HomePage client:idle />
-      <Bg />
+      <Bg transition:animate={fade({ duration: '0.4s' })} />
       <Sky client:idle />
       <Name client:idle />
       <AudioBtn client:idle />
