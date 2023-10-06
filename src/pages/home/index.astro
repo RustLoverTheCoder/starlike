@@ -9,6 +9,7 @@ import { Name } from "@components/home/Name";
 import { AudioBtn } from "@components/home/audio";
 import "@styles/global.css";
 import { fade } from 'astro:transitions';
+import { AppHeader } from "@components/appHeader/AppHeader";
 ---
 
 <html lang="zh-Hans-CN">
@@ -29,6 +30,7 @@ import { fade } from 'astro:transitions';
       <Name client:idle />
       <AudioBtn client:idle />
       <Audio client:idle />
+      <AppHeader client:idle />
     </div>
   </body>
 </html>
