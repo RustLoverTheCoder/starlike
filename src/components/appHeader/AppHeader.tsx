@@ -183,17 +183,15 @@ const MenuNav = () => {
     };
   };
 
-  const selectNav = (index) => {};
-
   return (
     <div className="absolute w-auto top-[168px] bottom-0 right-0">
       <div className="hy-nav-line absolute w-0.5 h-[82%] bg-[linear-gradient(to_bottom,rgba(116,96,54,0)_0%,#746036_3%,#746036_85%,rgba(116,96,54,0)_100%)] right-9" />
       <div className="hy-nav-wrapper flex flex-col gap-11 mr-9">
         {navList.map((item, index) => (
-          <div
+          <a
+            href={item.url}
             onMouseOver={() => setCurrentNav(index)}
-            onClick={() => selectNav(index)}
-            className="hy-item relative shrink-0 inline-block text-white self-end text-right"
+            className="hy-item relative shrink-0 inline-block text-white self-end text-right outline-none"
             key={item.url}
           >
             <div
@@ -255,7 +253,7 @@ const MenuNav = () => {
                 <div className="w-0.5 h-24 bg-[linear-gradient(to_bottom,#fbe68e_0%,#fbe68e_80%,#746036_100%)] absolute right-0 -translate-y-16" />
               )}
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
