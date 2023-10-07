@@ -21,7 +21,7 @@ export const Name = () => {
   ];
   return (
     <div className="absolute flex justify-center items-center group top-[33%] left-0 right-0">
-      <div className="hy-name-content hy-name-active relative flex items-center space-x-12">
+      <div className="hy-name-content hy-name-active relative flex items-center space-x-[72px]">
         {wordPics.map((i) => {
           return (
             <img
@@ -33,7 +33,7 @@ export const Name = () => {
           );
         })}
       </div>
-      <div className="hy-name-content absolute top-0 left-0 right-0 flex items-center justify-center space-x-12 ">
+      <div className="hy-name-content absolute top-0 left-0 right-0 flex items-center justify-center space-x-[72px] ">
         {wordPicsActive.map((i) => {
           return (
             <img
