@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dialog } from "@headlessui/react";
 export const AudioBtn = () => {
-  let [isOpen, setIsOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(true);
   return (
     <>
       <div
@@ -29,8 +29,9 @@ export const AudioBtn = () => {
             <div className="w-full text-white text-[24px]">
               《2023偌星告别视频》
             </div>
+            
             <iframe
-              src="https://player.bilibili.com/player.html?cid=789750417&aid=259093525&page=1&as_wide=1&high_quality=1&danmaku=0"
+              src="//player.bilibili.com/player.html?aid=259093525&bvid=BV1Ua411Z7BY&cid=789750417&p=1&high_quality=1"
               className="aspect-video mt-1 mb-11 max-h-[70vh]"
             />
             <div className="w-full overflow-y-hidden overflow-x-auto h-[120px] flex items-center space-x-7">
