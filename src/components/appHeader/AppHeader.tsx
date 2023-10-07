@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import { useUser } from "@hooks/useUser";
 import { useMenu } from "@hooks/useMenu";
+import { cn } from "@utils/cn";
 
 export const AppHeader = () => {
   const [module, setModule] = useState("");
@@ -53,6 +54,51 @@ export const AppHeader = () => {
           className="h-8 opacity-100 transition-all duration-[0.3s] object-contain object-center"
         />
       </a>
+      <div className="hy-tools flex items-center space-x-3">
+        {!user && (
+          <>
+            <div
+              className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center"
+              onClick={() => handleShowPanel(true)}
+            >
+              <img
+                src="/images/common/icon_login.png"
+                alt=""
+                className="w-4 h-4 mr-2"
+              />
+              登录
+            </div>
+            <div
+              onClick={() => handleShowPanel(true)}
+              className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center"
+            >
+              <img
+                src="/images/common/icon_register.png"
+                alt=""
+                className="w-4 h-4 mr-2"
+              />
+              注册
+            </div>
+          </>
+        )}
+        <div
+          className={`hy-menu_enter h-3 w-5 relative group`}
+          onClick={toggleMenu}
+        >
+          <span
+            className={cn(
+              "hy-line_top inline-block absolute w-full h-0.5 left-0 bg-white duration-[0.5s] ease-[ease-in-out] origin-center",
+              menuOpen ? "rotate-[135deg] top-1/4" : "top-0"
+            )}
+          ></span>
+          <span
+            className={cn(
+              "hy-line_bottom inline-block absolute w-[72%] h-0.5 duration-[0.5s] ease-[ease-in-out] origin-center left-0 bottom-0 bg-white group-hover:w-full",
+              menuOpen ? "w-full rotate-[-135deg] bottom-[60%]" : ""
+            )}
+          ></span>
+        </div>
+      </div>
     </header>
   );
 };
