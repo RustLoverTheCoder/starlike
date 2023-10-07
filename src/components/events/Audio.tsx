@@ -1,6 +1,5 @@
 import { cn } from "@utils/cn";
 import { useEffect, useRef, useState } from "react";
-import { TweenMax, Power3 } from "gsap";
 import "./Audio.css";
 
 export const Audio = () => {
@@ -13,34 +12,8 @@ export const Audio = () => {
     }
     if (audioPlayStatus) {
       musicEl.current.play();
-      TweenMax.fromTo(
-        musicEl,
-        2.5,
-        {
-          volume: 0,
-          ease: Power3.easeIn,
-        },
-        {
-          volume: 1,
-        }
-      );
     } else {
-      TweenMax.fromTo(
-        musicEl,
-        0.5,
-        {
-          volume: 1,
-        },
-        {
-          volume: 0,
-          ease: Power3.easeOut,
-          onComplete: () => {
-            if (musicEl.current) {
-              musicEl.current.pause();
-            }
-          },
-        }
-      );
+      musicEl.current.pause();
     }
   }, [audioPlayStatus, musicEl]);
 
