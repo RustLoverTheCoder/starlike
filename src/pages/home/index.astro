@@ -7,6 +7,7 @@ import { Sky } from "@components/home/sky";
 import { Audio } from "@components/events/Audio";
 import { Name } from "@components/home/Name";
 import { AudioBtn } from "@components/home/audio";
+import { HomeInit } from "@components/home/init";
 import "@styles/global.css";
 import { fade } from 'astro:transitions';
 import { AppHeader } from "@components/appHeader/AppHeader";
@@ -25,12 +26,13 @@ import { AppHeader } from "@components/appHeader/AppHeader";
       <!-- <Header client:idle /> -->
       <!-- <Menu client:idle /> -->
       <HomePage client:idle />
-      <Bg transition:animate={fade({ duration: '0.4s' })} />
+      <Bg />
       <Sky client:idle />
       <Name client:idle />
       <AudioBtn client:idle />
       <Audio client:idle />
       <AppHeader client:idle />
+      <HomeInit client:only="react" />
     </div>
   </body>
 </html>
