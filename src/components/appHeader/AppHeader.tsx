@@ -1,20 +1,10 @@
-import { Fragment, useState } from "react";
 import { useUser } from "@hooks/useUser";
 import { useMenu } from "@hooks/useMenu";
 import { cn } from "@utils/cn";
 
 export const AppHeader = () => {
-  const [module, setModule] = useState("");
   const { menuOpen, toggleMenu } = useMenu();
   const { user, panelOpen, updatePanel, logout } = useUser();
-
-  const handleToggleMenu = () => {
-    if (menuOpen === false) {
-      updatePanel(false);
-    }
-
-    toggleMenu();
-  };
 
   const handleShowPanel = (m: boolean) => {
     toggleMenu();
