@@ -1,7 +1,10 @@
 import { cn } from "@utils/cn";
+import { useAtomValue } from "jotai";
+import { yearAtom } from "./atoms";
 
 export const Events = () => {
   const direction = "right";
+  const year = useAtomValue(yearAtom)
   return (
     <div
       className="w-screen h-screen relative text-white"
@@ -11,7 +14,7 @@ export const Events = () => {
       }}
     >
       <img
-        src={`/images/events/138.webp`}
+        src={`/images/events/${year}.webp`}
         alt="events"
         className="w-full h-full object-cover object-center"
       />
