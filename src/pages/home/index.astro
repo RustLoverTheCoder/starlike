@@ -1,7 +1,6 @@
 ---
 import { HomePage } from "@components/home";
 import { Menu } from "@components/home/menu";
-import { Header } from "@components/home/header";
 import Bg from "@components/home/bg/index.astro";
 import { Sky } from "@components/home/sky";
 import { Audio } from "@components/events/Audio";
@@ -23,8 +22,6 @@ import { AppHeader } from "@components/appHeader/AppHeader";
   </head>
   <body>
     <div class="w-screen h-screen relative">
-      <!-- <Header client:idle /> -->
-      <!-- <Menu client:idle /> -->
       <HomePage client:idle />
       <Bg />
       <Sky client:idle />
