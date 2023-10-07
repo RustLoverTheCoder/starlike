@@ -1,0 +1,36 @@
+.audio_line {
+    @apply animate-[music-playing_alternate_linear] transition-all duration-[0.3s];
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+.audio_line:first-child {
+    animation-duration: 0.4s;
+}
+
+.audio_line:nth-child(2) {
+    animation-duration: 0.5s;
+}
+
+.audio_line:nth-child(3) {
+    animation-duration: 0.6s;
+    animation-delay: 0.1s;
+}
+
+.audio_line:nth-child(4) {
+    animation-duration: 0.3s;
+}
+
+.audio_line:last-child {
+    animation-duration: 0.5s;
+}
+
+@keyframes music-playing {
+    0% {
+        height: 10%;
+    }
+
+    100% {
+        height: 95%;
+    }
+}
