@@ -4,22 +4,22 @@ const videoList = [
   {
     title: "《2023偌星告别视频》",
     path: "//player.bilibili.com/player.html?aid=259093525&bvid=BV1Ua411Z7BY&cid=789750417&p=1&high_quality=1",
-    bg: "https://i0.hdslb.com/bfs/archive/bd32002687acc617e717ecbca6935e399797d214.jpg",
+    bg: "/images/video/0.webp",
   },
   {
     title: "HINNA（海娜）-太空策略游戏《偌星》赛琳娜之耀阵营氛围曲",
     path: "//player.bilibili.com/player.html?aid=516099491&bvid=BV1Ag411v7pY&cid=847828741&p=1&high_quality=1",
-    bg: "https://i0.hdslb.com/bfs/archive/5ae7399ed7a7847d1c0d9a497266e208ab80f3d6.jpg",
+    bg: "/images/video/1.webp",
   },
   {
     title: "【战研会客】太空科幻策略游戏《偌星》开发者访谈",
     path: "//player.bilibili.com/player.html?aid=346225602&bvid=BV1yR4y1d74u&cid=849507784&p=1&high_quality=1",
-    bg: "https://i1.hdslb.com/bfs/archive/1da21531b3e98f689ed3176716397eeee3dbc5d8.jpg",
+    bg: "/images/video/2.webp",
   },
   {
     title: "HUI SU（辉夙）-太空策略游戏《偌星》一体汉和阵营氛围曲",
     path: "//player.bilibili.com/player.html?aid=561425744&bvid=BV18e4y1q7Jx&cid=856974836&p=1&high_quality=1",
-    bg: "https://i0.hdslb.com/bfs/archive/da4aadef5a71e49bc8ff95022d28df23e4f80777.jpg",
+    bg: "/images/video/3.webp",
   },
 ];
 export const AudioBtn = () => {
@@ -60,11 +60,11 @@ export const AudioBtn = () => {
             <div className="w-full overflow-y-hidden overflow-x-auto h-[120px] flex items-center space-x-7">
               {videoList.map((video) => {
                 return (
-                  <div key={video.path} className="h-[120px] aspect-video rounded-lg overflow-hidden relative">
+                  <div key={video.path} className="h-[120px] aspect-video rounded-lg overflow-hidden relative cursor-pointer">
                     <img
                       src={video.bg}
                       alt=""
-                      className="h-[120px] aspect-video rounded-lg overflow-hidden"
+                      className="h-[120px] aspect-video rounded-lg overflow-hidden object-cover object-center"
                     />
                   </div>
                 );
