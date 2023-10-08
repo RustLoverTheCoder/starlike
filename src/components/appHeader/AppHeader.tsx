@@ -3,7 +3,9 @@ import { useMenu } from "@hooks/useMenu";
 import { cn } from "@utils/cn";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import { LoginModal } from "./LoginModal";
 import "./AppHeader.css";
+
 
 const navList = [
   {
@@ -48,17 +50,7 @@ export const AppHeader = () => {
   const { user, panelOpen, updatePanel, logout } = useUser();
 
   const handleShowPanel = (m: boolean) => {
-    toggleMenu();
-
-    if (panelOpen) {
-      if (panelOpen !== m) {
-        updatePanel(m);
-      } else {
-        updatePanel(false);
-      }
-    } else {
-      updatePanel(m);
-    }
+    updatePanel(m);
   };
 
   const handleLogout = () => {
@@ -122,6 +114,8 @@ export const AppHeader = () => {
           </div>
         </div>
       </header>
+      {/* user */}
+      <LoginModal />
       {/* menu */}
       <Dialog
         open={menuOpen}

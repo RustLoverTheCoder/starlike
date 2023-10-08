@@ -1,3 +1,4 @@
+import { atom, useAtom } from "jotai";
 import { useState } from "react";
 
 export type User = {
@@ -6,9 +7,11 @@ export type User = {
   token: string;
 };
 
+const panelAtom = atom(false);
+
 export function useUser() {
   const [user, setUser] = useState<User | null>(null);
-  const [panel, setPanel] = useState(false);
+  const [panel, setPanel] = useAtom(panelAtom);
 
   const updatePanel = (status: boolean) => {
     setPanel(status);
