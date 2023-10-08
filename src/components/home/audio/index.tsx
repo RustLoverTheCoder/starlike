@@ -23,7 +23,7 @@ const videoList = [
   },
 ];
 export const AudioBtn = () => {
-  let [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(videoList[0]);
   return (
     <>
@@ -50,17 +50,17 @@ export const AudioBtn = () => {
         <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center px-[200px] pt-[40px] md:pt-[60px] lg:pt-[80px] overflow-y-auto overflow-x-hidden">
           <Dialog.Panel className="w-full flex flex-col h-auto justify-center">
             <div className="w-full text-white text-[24px]">
-              《2023偌星告别视频》
+              {currentVideo.title}
             </div>
 
             <iframe
-              src="//player.bilibili.com/player.html?aid=259093525&bvid=BV1Ua411Z7BY&cid=789750417&p=1&high_quality=1"
+              src={currentVideo.path}
               className="aspect-video mt-1 mb-11 max-h-[70vh]"
             />
-            <div className="w-full overflow-y-hidden overflow-x-auto h-[120px] flex items-center space-x-7">
+            <div className="w-full overflow-y-hidden overflow-x-auto h-[120px] flex items-center space-x-7 pointer-events-none">
               {videoList.map((video) => {
                 return (
-                  <div key={video.path} className="h-[120px] aspect-video rounded-lg overflow-hidden relative cursor-pointer">
+                  <div key={video.path} className="h-[120px] aspect-video rounded-lg overflow-hidden relative cursor-pointer pointer-events-auto" onClick={() => setCurrentVideo(video)}>
                     <img
                       src={video.bg}
                       alt=""
