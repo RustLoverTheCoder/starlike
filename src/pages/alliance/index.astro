@@ -6,31 +6,31 @@ const alliances = [
     name: "selene",
     name_cn: "赛琳娜之耀",
     name_en: "THE GLORY OF SELENE",
-    path: '/alliance/selene'
+    path: "/alliance/selene",
   },
   {
     name: "empire",
     name_cn: "沙顿穆恩帝国",
     name_en: "SHATON MOUN EMPIRE",
-    path: '/alliance/empire'
+    path: "/alliance/empire",
   },
   {
     name: "cpgu",
     name_cn: "一体汉和",
     name_en: "CPGU",
-    path: '/alliance/cpgu'
+    path: "/alliance/cpgu",
   },
   {
     name: "moutainpass",
     name_cn: "芒廷帕斯联合会",
     name_en: "MOUTAINPASS FEDERATION",
-    path: '/alliance/moutainpass'
+    path: "/alliance/moutainpass",
   },
   {
     name: "federation",
     name_cn: "圣瞳会",
     name_en: "FEDERATION",
-    path: '/alliance/federation'
+    path: "/alliance/federation",
   },
 ];
 ---
@@ -46,11 +46,16 @@ const alliances = [
   <body>
     <div class="w-full h-full relative">
       <div id="hy-alliance" class="w-full h-full relative">
-        <div class="hy-alliance-container w-full h-full relative px-8 grid grid-cols-5 gap-7">
+        <div
+          class="hy-alliance-container w-full h-full relative px-8 grid grid-cols-5 gap-7 py-16"
+        >
           {
             alliances.map((alliance) => {
               return (
-                <a href={alliance.path} class="hy-alliance-item relative inline-block w-full h-full text-white shadow-[0_0_0_#fff] group cursor-pointer">
+                <a
+                  href={alliance.path}
+                  class="hy-alliance-item relative inline-block w-full h-full text-white shadow-[0_0_0_#fff] group cursor-pointer hover:-translate-y-16 transition-all duration-300"
+                >
                   <div
                     class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
                     style={{
@@ -69,11 +74,16 @@ const alliances = [
                       alt=""
                       class="h-[120px] mb-3"
                     />
-                    <div class="hy-name">
-                      <div class="hy-name_cn h-8 leading-8">{alliance.name_cn}</div>
-                      <div class="hy-name_en h-8 leading-8">{alliance.name_en}</div>
+
+                    <div class="hy-name opacity-0 group-hover:opacity-100 transition-all">
+                      <div class="hy-name_cn h-8 leading-8">
+                        {alliance.name_cn}
+                      </div>
+                      <div class="hy-name_en h-8 leading-8">
+                        {alliance.name_en}
+                      </div>
                     </div>
-                    <div class="hy-more h-[72px]"></div>
+                    <div class="hy-more h-[72px]" />
                   </div>
                 </a>
               );
