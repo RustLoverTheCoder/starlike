@@ -1,4 +1,5 @@
 ---
+import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
 const alliances = [
   {
@@ -44,7 +45,7 @@ const alliances = [
           {
             alliances.map((alliance) => {
               return (
-                <div class="hy-alliance-item relative inline-block w-1/5 h-full text-white shadow-[0_0_0_#fff] group">
+                <div class="hy-alliance-item relative inline-block w-1/5 h-full text-white shadow-[0_0_0_#fff] group cursor-pointer">
                   <div
                     class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
                     style={{
@@ -52,20 +53,22 @@ const alliances = [
                     }}
                   />
                   <div
-                    class={`absolute top-0 left-0 right-0 bottom-0 bg-no-repeat bg-cover bg-bottom opacity-0 group-hover:opacity-100 transition-opacity duration-400`}
+                    class={`absolute top-0 left-0 right-0 bottom-0 bg-no-repeat bg-cover bg-bottom opacity-0 group-hover:opacity-100 transition-all ease-out duration-300`}
                     style={{
                       backgroundImage: `url(/images/alliance/${alliance.name}_bg_active.webp)`,
                     }}
                   />
-                  <div class="hy-info">
-                    <div class="hy-icon" />
+                  <div class="hy-info flex flex-col items-center text-center w-full absolute left-0 right-0 bottom-0">
+                    <img
+                      src={`/images/alliance/${alliance.name}_icon.png`}
+                      alt=""
+                      class="h-[120px] mb-3"
+                    />
                     <div class="hy-name">
-                      <div class="hy-name_cn">{alliance.name_cn}</div>
-                      <div class="hy-name_en">{alliance.name_en}</div>
+                      <div class="hy-name_cn h-8 leading-8">{alliance.name_cn}</div>
+                      <div class="hy-name_en h-8 leading-8">{alliance.name_en}</div>
                     </div>
-                    <div class="hy-more">
-                      <div class="hy-more-inner" />
-                    </div>
+                    <div class="hy-more h-[72px]"></div>
                   </div>
                 </div>
               );
@@ -74,5 +77,6 @@ const alliances = [
         </div>
       </div>
     </div>
+    <AppHeader client:idle />
   </body>
 </html>
