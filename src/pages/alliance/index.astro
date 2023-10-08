@@ -6,26 +6,31 @@ const alliances = [
     name: "selene",
     name_cn: "赛琳娜之耀",
     name_en: "THE GLORY OF SELENE",
+    path: '/alliance/selene'
   },
   {
     name: "empire",
     name_cn: "沙顿穆恩帝国",
     name_en: "SHATON MOUN EMPIRE",
+    path: '/alliance/empire'
   },
   {
     name: "cpgu",
     name_cn: "一体汉和",
     name_en: "CPGU",
+    path: '/alliance/cpgu'
   },
   {
     name: "moutainpass",
     name_cn: "芒廷帕斯联合会",
     name_en: "MOUTAINPASS FEDERATION",
+    path: '/alliance/moutainpass'
   },
   {
     name: "federation",
     name_cn: "圣瞳会",
     name_en: "FEDERATION",
+    path: '/alliance/federation'
   },
 ];
 ---
@@ -45,7 +50,7 @@ const alliances = [
           {
             alliances.map((alliance) => {
               return (
-                <div class="hy-alliance-item relative inline-block w-1/5 h-full text-white shadow-[0_0_0_#fff] group cursor-pointer">
+                <a href={alliance.path} class="hy-alliance-item relative inline-block w-1/5 h-full text-white shadow-[0_0_0_#fff] group cursor-pointer">
                   <div
                     class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
                     style={{
@@ -70,7 +75,7 @@ const alliances = [
                     </div>
                     <div class="hy-more h-[72px]"></div>
                   </div>
-                </div>
+                </a>
               );
             })
           }
