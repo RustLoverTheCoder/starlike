@@ -1,6 +1,33 @@
 ---
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
+const shipList = [
+  {
+    name: "战列舰",
+    en: "BATTLESHIP",
+    shipUrl: "/images/ship/ship_1.png",
+  },
+  {
+    name: "驱逐舰",
+    en: "BATTLESHIP",
+    shipUrl: "/images/ship/ship_1.png",
+  },
+  {
+    name: "护卫舰",
+    en: "BATTLESHIP",
+    shipUrl: "/images/ship/ship_1.png",
+  },
+  {
+    name: "巡洋舰",
+    en: "BATTLESHIP",
+    shipUrl: "/images/ship/ship_1.png",
+  },
+  {
+    name: "潜伏舰",
+    en: "BATTLESHIP",
+    shipUrl: "/images/ship/ship_1.png",
+  },
+];
 ---
 
 <html lang="zh-Hans-CN">
@@ -12,7 +39,26 @@ import "@styles/global.css";
     <title>偌星 ｜ Starlike</title>
   </head>
   <body>
-    <div class="w-full h-full relative">starship</div>
+    <div
+      class="w-full h-full relative bg-[url(/images/ship/bg.webp)] bg-cover bg-center bg-no-repeat flex items-center space-x-[120px] px-[105px] max-h-full overflow-x-auto overflow-y-hidden"
+    >
+      {
+        shipList.map((ship) => {
+          return (
+            <div class="w-auto h-auto relative flex-shrink-0 group">
+              <div class="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
+                <img src="/images/ship/item_bg.jpg" alt="" class="w-[240px]" />
+              </div>
+              <img
+                src="/images/ship/item_bg_active.jpg"
+                alt=""
+                class="w-[240px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+          );
+        })
+      }
+    </div>
   </body>
   <AppHeader client:idle />
 </html>
