@@ -1,5 +1,32 @@
 ---
 import "@styles/global.css";
+const alliances = [
+  {
+    name: "selene",
+    name_cn: "赛琳娜之耀",
+    name_en: "THE GLORY OF SELENE",
+  },
+  {
+    name: "empire",
+    name_cn: "沙顿穆恩帝国",
+    name_en: "SHATON MOUN EMPIRE",
+  },
+  {
+    name: "cpgu",
+    name_cn: "一体汉和",
+    name_en: "CPGU",
+  },
+  {
+    name: "moutainpass",
+    name_cn: "芒廷帕斯联合会",
+    name_en: "MOUTAINPASS FEDERATION",
+  },
+  {
+    name: "federation",
+    name_cn: "圣瞳会",
+    name_en: "FEDERATION",
+  },
+];
 ---
 
 <html lang="zh-Hans-CN">
@@ -12,7 +39,30 @@ import "@styles/global.css";
   </head>
   <body>
     <div class="w-screen h-screen relative">
-      alliance
+      <div id="hy-alliance">
+        <div class="hy-alliance-container">
+          {
+            alliances.map((alliance) => {
+              return (
+                <div class="hy-alliance-item">
+                  <div class="hy-bg" />
+                  <div class="hy-bg_active" />
+                  <div class="hy-info">
+                    <div class="hy-icon" />
+                    <div class="hy-name">
+                      <div class="hy-name_cn">{alliance.name_cn}</div>
+                      <div class="hy-name_en">{alliance.name_en}</div>
+                    </div>
+                    <div class="hy-more">
+                      <div class="hy-more-inner" />
+                    </div>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
     </div>
   </body>
 </html>
