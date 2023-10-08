@@ -38,15 +38,25 @@ const alliances = [
     <title>偌星 ｜ Starlike</title>
   </head>
   <body>
-    <div class="w-screen h-screen relative">
-      <div id="hy-alliance">
-        <div class="hy-alliance-container">
+    <div class="w-full h-full relative">
+      <div id="hy-alliance" class="w-full h-full relative">
+        <div class="hy-alliance-container w-full h-full relative">
           {
             alliances.map((alliance) => {
               return (
-                <div class="hy-alliance-item">
-                  <div class="hy-bg" />
-                  <div class="hy-bg_active" />
+                <div class="hy-alliance-item relative inline-block w-1/5 h-full text-white shadow-[0_0_0_#fff] group">
+                  <div
+                    class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
+                    style={{
+                      backgroundImage: `url(/images/alliance/${alliance.name}_bg.webp)`,
+                    }}
+                  />
+                  <div
+                    class={`absolute top-0 left-0 right-0 bottom-0 bg-no-repeat bg-cover bg-bottom opacity-0 group-hover:opacity-100 transition-opacity duration-400`}
+                    style={{
+                      backgroundImage: `url(/images/alliance/${alliance.name}_bg_active.webp)`,
+                    }}
+                  />
                   <div class="hy-info">
                     <div class="hy-icon" />
                     <div class="hy-name">
