@@ -14,7 +14,7 @@ const navList = [
   {
     en: "game introduction",
     cn: "游戏介绍",
-    url: "/story",
+    url: "/home",
   },
   {
     en: "camp",
