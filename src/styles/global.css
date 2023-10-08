@@ -15,7 +15,7 @@
 @layer base {
   html,
   body {
-    @apply w-full h-full;
+    @apply w-full h-full bg-[#32383dff] text-white;
     font-family: AlibabaPuHuiTi, system-ui, sans-serif;
   }
 }
