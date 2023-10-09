@@ -12,7 +12,7 @@ export const LoginModal = () => {
         className="relative z-[999]"
       >
         <div
-          className="fixed top-0 left-0 right-0 bottom-0 bg-black/10"
+          className="fixed top-0 left-0 right-0 bottom-0 bg-black/50"
           aria-hidden="true"
         />
         <div className="fixed top-0 left-0 right-0 bottom-0 w-screen overflow-y-auto">
@@ -57,6 +57,24 @@ export const LoginModal = () => {
                       <div className="w-[90px] h-[30px] flex-shrink-0 border border-white text-xs flex justify-center items-center cursor-pointer hover:text-[#af9465] hover:border-[#af9465] transition-all">
                         <div>发送验证码</div>
                       </div>
+                    </div>
+                  </div>
+                  <div className="w-full h-10 flex justify-center items-center space-x-12 pt-5">
+                    <div
+                      className="w-[108px] h-10 border-white border text-xs flex justify-center items-center cursor-pointer hover:text-[#af9465] hover:border-[#af9465] transition-all"
+                      onClick={() => {
+                        updatePanel(false);
+                      }}
+                    >
+                      <div>取消</div>
+                    </div>
+                    <div
+                      className="w-[108px] h-10 border-white border text-xs flex justify-center items-center cursor-pointer hover:text-[#af9465] hover:border-[#af9465] transition-all"
+                      onClick={() => {
+                        updatePanel(false);
+                      }}
+                    >
+                      <div>登录</div>
                     </div>
                   </div>
                 </form>
