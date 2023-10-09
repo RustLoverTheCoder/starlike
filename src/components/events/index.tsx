@@ -2,6 +2,7 @@ import { cn } from "@utils/cn";
 import { useAtomValue } from "jotai";
 import { yearAtom } from "./atoms";
 import { useMemo } from "react";
+import "./index.css";
 
 type EventType = {
   id: number;
@@ -12,6 +13,7 @@ type EventType = {
   titleEn: string;
   earBefore: boolean | string;
   layoutRight: boolean;
+  describe: string;
 };
 
 const timeLine: Record<string, EventType> = {
@@ -23,6 +25,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Big Bang",
     earBefore: false,
     layoutRight: true,
+    describe: `<span class="describe-Highlight">138亿年前*</span>，一场温度极高、尺度极小的大爆炸启动了新一轮<span class="describe-Highlight">宇宙呼吸的进程*</span>。伴随着持续的膨胀，宇宙的温度和密度迅速下降，使宇宙得以完成原初核合成。在随后的漫长岁月中,原子和分子们逐渐复合成为各种气体和尘埃，在分裂、坍缩、聚拢中形成了古老星云的雏形，逐渐开始了对恒星的孕育。`,
   },
   year_57: {
     id: 2,
@@ -32,6 +35,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Upsilon Cosmic Voids",
     earBefore: false,
     layoutRight: false,
+    describe: `这片大尺度宇宙结构空窗区如迷一般突然诞生于大犬座与天兔座方向的深空之中，在人类有史以来的数万年内都不曾有能力察觉到它的存在。但随着新纪元（New.Era)之后对图兰神迹的出现，一些有关史前高等文明的科考成果陆续解密，这片强烈冲击人类宇宙认知的宇宙<span class="describe-Highlight">空洞*</span>才第一次进入了我们的视野。`,
   },
   year_52: {
     id: 3,
@@ -41,6 +45,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Praptro Disaster",
     earBefore: false,
     layoutRight: true,
+    describe: `一个距离银河系约52亿光年的古老星系中发生了一场巨大的天体群爆炸，这场爆炸的烈度之高使得整个星系被几乎摧毁。在后世的科学推断中，有人认为这是空间撕裂导致的天文自然灾难，有人则认为这是高等文明的战争结果。`,
   },
   year_46: {
     id: 4,
@@ -50,6 +55,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The solar system was born",
     earBefore: false,
     layoutRight: false,
+    describe: `46亿年前，在银河系的猎户臂上，一团巨型原始<span class="describe-Highlight">星云*</span>物质在引力的作用下逐渐旋转聚拢、坍缩、直到温度高到触发了核聚变反应。最终，高温辐射所产生的热膨胀与引力的坍缩达成了稳定的平衡态，一颗中等质量恒星逐渐成型，正式步入了主序星阶段。而它周围的尘埃物质在辐射、太阳风、引力的多重影响下不断聚合、碰撞形成了一颗颗行星，其中之一便是我们的地球。`,
   },
   year_385: {
     id: 5,
@@ -60,6 +66,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Begining of Life",
     earBefore: false,
     layoutRight: true,
+    describe: `在宇宙基本环境参数和一系列粒子运动的共同作用下，在本只有无机物的死寂星球上，化合出了最原始的有机物质，而在漫长的时间和浩瀚的海洋里，最终诞生了第一个细胞，它是我们所有生物的先祖。`,
   },
   year_53: {
     id: 6,
@@ -70,6 +77,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Cambrian life explosion",
     earBefore: false,
     layoutRight: false,
+    describe: `"5亿年前，一个困扰人类历史学家至今的时期——<span class="describe-Highlight">寒武纪*</span>虽然地球上早在40亿年前就存在了生命，但是绝大部分都以单细胞存在，并且几乎没有留下肉眼可见的痕迹。而寒武纪时期，突然出现了几乎地球动物的祖先（各种节肢动物、软体动物、腕足动物、环节动物、脊柱动物等）。以至于地球人类一度认为所谓的寒武纪生命大爆发不过是一场假象。然而越来越多的化石出土，似乎又印证了它的真实存在，那么寒武纪的真相到底是什么呢？"`,
   },
   year_320: {
     id: 7,
@@ -79,6 +87,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "LUCY Walk",
     earBefore: false,
     layoutRight: true,
+    describe: `在经历漫长的演化后，灵长类在这颗生机勃勃的星球上占据了自己的一席之地。当他们开始抬起身子，用双腿在草原和森林中奔跑觅食时，他们正悄无声息地迎接自己种族童年的终结。那奔跑的已经成为历史，在数百万年的时光后被人们重新发掘，并命以“露西”的始祖之名。`,
   },
   year_8000: {
     id: 8,
@@ -88,6 +97,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Primitive Agricultural Society",
     earBefore: "AD.前",
     layoutRight: false,
+    describe: `人类在330万年前便已开始制作工具，在5万年前学会了人工取火，但直到1万年前才在一种名为小麦的作物上找到了进入农耕时代的钥匙，自此人类开始拥有了“发展”的概念，成为了后世政治、战争、艺术和哲学的先决基础。`,
   },
   year_3500: {
     id: 9,
@@ -97,6 +107,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Birth of Civilization",
     earBefore: "AD.前",
     layoutRight: true,
+    describe: `楔形文字、灌溉技术、太阳历、苏美尔王表、六十进制，城市...幼发拉底河畔在短时间内所涌现出的这一切显得那么伟大且不可思议，人类似乎在那片土地、那段时间内迅速从“智慧生命”步入了“<span class="describe-Highlight">文明*</span>”的阶段。但从更大的时代尺度来看，这段转瞬即逝的文明时代却给与了后人无限的质疑和遐想。`,
   },
   year_18: {
     id: 10,
@@ -106,6 +117,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Industrial Revolution",
     earBefore: "AD.",
     layoutRight: false,
+    describe: `AD1765年，一台“<span class="describe-Highlight">珍妮机*</span>”的出现，标志着人类正式开启了“工业革命“。生产力飞跃式发展，生产方式的根本性改变，为社会、文化和政治带来了巨大变革，人类从传统农业社会快步进入现代工业社会。200年来，人类社会科技水平飞速提升，财富快速累积，人类的平均寿命也近乎翻倍。`,
   },
   year_1961: {
     id: 11,
@@ -115,6 +127,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Humans march into space",
     earBefore: "AD.",
     layoutRight: true,
+    describe: `1961年4月12日，<span class="describe-Highlight">尤里·加加林*</span>乘坐东方1号宇宙飞船从拜克努尔发射场起航，在轨道上绕地球一周，历时1小时48分，于10点55分安全返回，完成了世界上首次载人宇宙飞行。这一历史性的事件标志着人类进入了太空时代，成为了太空探索的重要里程碑，人类终于向那梦寐以求的星空踏出了坚实的一步`,
   },
   year_1969: {
     id: 12,
@@ -124,6 +137,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "First Step on Outerworld",
     earBefore: "AD.",
     layoutRight: false,
+    describe: `1969年7月21日，美国的“阿波罗11号”宇宙飞船载着三名宇航员成功登上月球，“<span class="describe-Highlight">这只是一个人的一小步，但却是整个人类的一大步。*</span>”人类的登月成就在世界范围内引起了巨大的反响，它成为了人类科学、技术和勇气的象征。登月不仅改变了人们对太空的看法，也促进了太空科学的发展，为后续的太空探索和国际合作铺平了道路。`,
   },
   year_1971: {
     id: 13,
@@ -133,6 +147,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "First Spacestation",
     earBefore: "AD.",
     layoutRight: true,
+    describe: `礼炮—1号空间站是苏联首个太空站，也是人类历史上首个太空站，于1971年4月19日发射升空，之后苏联太空船联盟十一号与空间站成功对接，三位宇航员在太空站内逗留了二十三天，但在返航过程中不幸牺牲。而后，国际合作形式的国际空间站，为人类在太空中进行生命科学研究、宇宙观测、物质研究、技术实验等多种活动提供了宝贵的平台。`,
   },
   year_2015: {
     id: 14,
@@ -142,6 +157,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Fast Radio Bursts 150418",
     earBefore: "AD.",
     layoutRight: false,
+    describe: `首次被人类确定出精确距离的<span class="describe-Highlight">快速射电暴*</span>，其射电余辉经历6天之后才完全不可探测到。研究人员认为这个快速射电暴来自一次毁灭性的天体物理爆发事件，它促使科学家们更加努力地寻找这些宇宙中的神秘信号的来源，并进一步推动了对宇宙中未知现象的理解。`,
   },
   year_2035: {
     id: 15,
@@ -151,6 +167,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "ISEC Established",
     earBefore: "AD.",
     layoutRight: true,
+    describe: `2035年，国际太空探索委员ISEC（International Space Exploration Council），致力于推动太空探索技术革新、推进并监督太阳系资源的和平利用和可持续发展。有关深空探索、人类登陆任务、高精尖航天技术验证、宇宙环境监测等工作，均由ISEC负责方案评审与执行监督。`,
   },
   year_2083: {
     id: 16,
@@ -160,6 +177,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "First view of Sunset Crystal",
     earBefore: "AD.",
     layoutRight: false,
+    describe: `2083年1月12日起，由ISEC主导开始执行的谷神星联合勘探考察行动。在约一个月后，黎明号抵达谷神星。在本次行动中，人类首次发现<span class="describe-Highlight">落日晶*</span>，并带回了少量样本。同期，地球异常气候变化、地质现象增多，岩层中开始探测到类似落日晶的矿物。`,
   },
   year_2089: {
     id: 17,
@@ -169,6 +187,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Pure Stardust Refined",
     earBefore: "AD.",
     layoutRight: true,
+    describe: `人类对于落日晶的形成与性质都毫无头绪，但其潜在的科研价值与经济价值都让世界各国无法忽视。无数先驱为了落日晶的研究<span class="describe-Highlight">献出了生命*</span>，但仍有人冒着危险，在历经无数艰辛于困苦，最终从落日晶中提炼出了颠覆时代的物质——星尘。`,
   },
   year_2101: {
     id: 19,
@@ -178,6 +197,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Interphase Revolution",
     earBefore: "AD.",
     layoutRight: false,
+    describe: `以雅库茨克事件留下的研究资料为基础，<span class="describe-Highlight">稳相皿*</span>（Steady Phase Utensil）诞生，解决了星尘存储的问题。而后<span class="describe-Highlight">雅库茨克引擎*</span>的诞生，标志着人类初步掌握了星尘相变的规律，由星尘带来的技术革命在各个领域不断爆发。`,
   },
   year_2144: {
     id: 20,
@@ -187,6 +207,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Project Pilgrim Implementation",
     earBefore: "AD.",
     layoutRight: true,
+    describe: `星尘的存在和其不可控的巨大影响使得人类重新认识到自己的幼稚和无知，地球恒星化趋势被众多科研机构证实。《联合国大会决议第199届》决议，巡礼者计划通过议案并启动，由ISEC主导，多国联合参与执行，破晓2号空间站、巡礼者计划T001-T003开始筹建。`,
   },
   year_2195: {
     id: 21,
@@ -196,6 +217,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "First Successful Trial",
     earBefore: "AD.",
     layoutRight: false,
+    describe: `巡礼者计划测试船团T003组/巡礼者1号船团，在破晓4号空间站组装、试发射成功，并开始进行生态循环、远航心理影响、长久居住适应性等多项实验，最终顺利完成了长达20年的测试任务后回归地球，为巡礼者计划的后续船团修改、优化设计提供了大量的宝贵资料。`,
   },
   year_3501: {
     id: 22,
@@ -206,6 +228,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "New Home - Turan",
     earBefore: "N.E.",
     layoutRight: true,
+    describe: `巡礼者计划第二船团抵达索尔托斯星系图兰星，先民建立了旧资本主义形态的国家，而后被蓬勃发展的圣瞳会取代，最终形成了政教合一的大阵营。`,
   },
   year_160: {
     id: 23,
@@ -215,6 +238,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "New Home - Longalgae",
     earBefore: "N.E.",
     layoutRight: false,
+    describe: `巡礼者计划第四船团抵达海娜星系龙藻星，先民以松散的部族联合机制为约定，在各自经历了差异化发展后，最终成立民族部落合众国——赛琳娜之耀。`,
   },
   year_242: {
     id: 24,
@@ -224,6 +248,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Reunion",
     earBefore: "N.E.",
     layoutRight: true,
+    describe: `巡礼者计划第四船团与第七船团重新建立了远程通信，并建立了定期通信机制，双方交换了大量技术与已知星图，至此，太阳系之子们在经历了上千年的漂泊离散后，终于重逢。`,
   },
   year_275: {
     id: 25,
@@ -233,6 +258,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "New Home - Seville",
     earBefore: "N.E.",
     layoutRight: false,
+    describe: `巡礼者计划第八船团抵达维德伯特星系塞维利星，围绕着统合政府和各大族群各自进行开拓，在经历了无数的摩擦冲突与领土吞并后，最终发展为沙顿穆恩帝国。`,
   },
   year_307: {
     id: 26,
@@ -242,6 +268,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "New Home - Kassairona",
     earBefore: "N.E.",
     layoutRight: true,
+    describe: `巡礼者计划第七船团抵达佛格星系卡萨伊罗娜星，以各经济体代表为核心开始开拓，在商业争端乃至暴力冲突的洗礼下，围绕商业利益的社会规范逐步建立，最终发芒廷帕斯联合会成立。`,
   },
   year_630: {
     id: 27,
@@ -251,6 +278,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "New Home - Destined Bright",
     earBefore: "N.E.",
     layoutRight: false,
+    describe: `巡礼者计划第十船团抵达双宜居行星系辉夙，并在辉星及夙星展开殖民，而后迅速展开了同胞搜寻计划，并吸纳了众多来自其他阵营的移民，最终发展为一体汉和。`,
   },
   year_767: {
     id: 28,
@@ -260,6 +288,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Alpenglow Blood Named",
     earBefore: "N.E.",
     layoutRight: true,
+    describe: `圣瞳会科研机构“圣典部”基于三百余年的科研资料，初步完善了有关异能人类的科学体系，将其定名为“<span class="describe-Highlight">染山霞血脉*</span>”，并发表了第一份官方研究报告《燃烧的血脉》（Burning Blood）。`,
   },
   year_862: {
     id: 29,
@@ -269,6 +298,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "War of Cleavage Broke out",
     earBefore: "N.E.",
     layoutRight: false,
+    describe: `沙顿穆恩帝国策划了矿船撞击事件“瑞普克事件”（Repuk Attack），帝国对赛琳娜宣战，而后芒廷帕斯联合会、一体汉和直接参战，圣瞳会也在一定程度被卷入战争，解离战争持续将近一百年，战火一度蔓延到所有人类已知的世界。`,
   },
   year_949: {
     id: 30,
@@ -278,6 +308,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Starwhisperd College Established",
     earBefore: "N.E.",
     layoutRight: true,
+    describe: `星语者衍刻技术实验成功，<span class="describe-Highlight">埃卡妮亚*</span>成为了第一个星语者，在完成最初级的衍刻与星语网络通讯设备建设后，星语者学院成立。这个在当时并未受到关注的组织，用历史上第一艘星舰和第一支染山霞舰队，以压倒性的力量终止了战争。`,
   },
   year_958: {
     id: 31,
@@ -287,6 +318,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Eridanus Agreement Signed",
     earBefore: "N.E.",
     layoutRight: false,
+    describe: `埃卡妮亚率领的染山霞舰队在逼停解理战争参战双方后，于次年组织签订了《波江座协定》，即《解理战争终止及星际各方合作协定》。会议期间，埃卡妮亚发布关于染山霞血脉的报告《最初的聆听者》（The Origin Listener），介绍染山霞血脉高级形态，正式命名其为<span class="describe-Highlight">星语者*</span>，同时提出了<span class="describe-Highlight">伞形社会*</span>的理念。`,
   },
   year_992: {
     id: 32,
@@ -296,6 +328,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Sea of Light Declared",
     earBefore: "N.E.",
     layoutRight: true,
+    describe: `在星语者与星语技术走向星际舞台后并被广泛认可后，埃卡妮亚以学院院长、伞形社会持伞人的身份，发表《<span class="describe-Highlight">光海声明</span>》，正式呼吁星际各界应勇于开发新领域，将人类的足迹遍布各个角落，由此正式开启了人类朝银河深处的大开拓运动。`,
   },
   year_1012: {
     id: 33,
@@ -305,6 +338,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "YOUR TIMES",
     earBefore: "N.E.",
     layoutRight: false,
+    describe: `现在，你将面对幽邃的未知，准备迎接下一个掩藏在迷雾中的相逢......`,
   },
 };
 
@@ -370,30 +404,7 @@ export const Events = () => {
           {/* desribe */}
           <div className="flex justify-end">
             <div className="max-w-[510px] text-xs text-[white] tracking-[0.75px] leading-normal font-[lighter] mt-[32.4px] px-0 py-[8px] border-t-2 border-t-[#e5bc76] border-solid">
-              <p>
-                <span
-                  className="relative text-[#ffe6b7]"
-                  style={{
-                    textShadow:
-                      "0 5px 8px rgba(0, 0, 0, 0.38), 0 5px 8px rgba(0, 0, 0, 0.38)",
-                  }}
-                >
-                  138亿年前*
-                </span>
-                ，一场温度极高、尺度极小的大爆炸启动了新一轮
-                <span
-                  className="relative text-[#ffe6b7]"
-                  style={{
-                    textShadow:
-                      "0 5px 8px rgba(0, 0, 0, 0.38), 0 5px 8px rgba(0, 0, 0, 0.38)",
-                  }}
-                >
-                  宇宙呼吸的进程*
-                </span>
-                。
-                伴随着持续的膨胀，宇宙的温度和密度迅速下降，使宇宙得以完成原初核合成。在随后的漫长岁月中,
-                原子和分子们逐渐复合成为各种气体和尘埃，在分裂、坍缩、聚拢中形成了古老星云的雏形，逐渐开始了对恒星的孕育。
-              </p>
+              <p dangerouslySetInnerHTML={{ __html: event.describe }} />
             </div>
           </div>
         </div>

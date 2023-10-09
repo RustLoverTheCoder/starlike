@@ -1,0 +1,4 @@
+.describe-Highlight {
+    @apply relative text-[#ffe6b7];
+    text-shadow: 0 5px 8px rgba(0, 0, 0, 0.38), 0 5px 8px rgba(0, 0, 0, 0.38);
+}
