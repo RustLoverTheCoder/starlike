@@ -371,7 +371,13 @@ export const Events = () => {
         requestAnimationFrame(() => {
           computePosition(target, tooltip, {
             placement: "top",
-            middleware: [offset(10), autoPlacement()],
+            middleware: [
+              offset(10),
+              autoPlacement({
+                alignment: "start",
+                allowedPlacements: ["top", "bottom"],
+              }),
+            ],
           }).then(({ x, y }) => {
             Object.assign(tooltip.style, {
               left: `${x}px`,
@@ -423,7 +429,12 @@ export const Events = () => {
         >
           {/* time */}
           <div className="hy-section_time relative font-normal mb-[42px]">
-            <h1 className={cn("text-white", "text-right")}>
+            <h1
+              className={cn(
+                "text-white",
+                direction === "right" ? "text-right" : "text-left"
+              )}
+            >
               <div className="relative z-10 translate-y-4">
                 <span className="text-[135.6px] leading-none">{event.num}</span>
                 <span className="text-[48px] top-[15px]">{event.ear}</span>
@@ -435,11 +446,15 @@ export const Events = () => {
             <div
               className={cn(
                 "flex items-center",
-                direction === "right" ? "justify-end" : ""
+                direction === "right"
+                  ? "justify-end"
+                  : "flex-row-reverse justify-end"
               )}
             >
               <div
-                className={cn(direction === "right" ? "text-right mr-5" : "")}
+                className={cn(
+                  direction === "right" ? "text-right mr-5" : "ml-5"
+                )}
               >
                 <div className="text-[30px] mb-3 font-medium leading-[1]">
                   {event?.title}
@@ -453,7 +468,12 @@ export const Events = () => {
             </div>
           </div>
           {/* desribe */}
-          <div className="flex justify-end">
+          <div
+            className={cn(
+              "flex",
+              direction === "right" ? "justify-end" : "justify-start"
+            )}
+          >
             <div className="max-w-[510px] text-xs text-[white] tracking-[0.75px] leading-normal font-[lighter] mt-[32.4px] px-0 py-[8px] border-t-2 border-t-[#e5bc76] border-solid">
               <p dangerouslySetInnerHTML={{ __html: event.describe }} />
             </div>
