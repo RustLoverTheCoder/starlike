@@ -10,6 +10,7 @@ import { HomeInit } from "@components/home/init";
 import "@styles/global.css";
 import { fade } from 'astro:transitions';
 import { AppHeader } from "@components/appHeader/AppHeader";
+import { ViewTransitions } from 'astro:transitions';
 ---
 
 <html lang="zh-Hans-CN">
@@ -19,6 +20,7 @@ import { AppHeader } from "@components/appHeader/AppHeader";
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>偌星 ｜ Starlike</title>
+    <ViewTransitions />
   </head>
   <body>
     <div class="w-screen h-screen relative">

@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from 'astro:transitions';
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
 const alliances = [
@@ -42,6 +43,7 @@ const alliances = [
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>偌星 ｜ Starlike</title>
+    <ViewTransitions />
   </head>
   <body>
     <div class="w-full h-full relative">
