@@ -25,7 +25,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Big Bang",
     earBefore: false,
     layoutRight: true,
-    describe: `<span class="describe-Highlight">138亿年前*</span>，一场温度极高、尺度极小的大爆炸启动了新一轮<span class="describe-Highlight">宇宙呼吸的进程*</span>。伴随着持续的膨胀，宇宙的温度和密度迅速下降，使宇宙得以完成原初核合成。在随后的漫长岁月中,原子和分子们逐渐复合成为各种气体和尘埃，在分裂、坍缩、聚拢中形成了古老星云的雏形，逐渐开始了对恒星的孕育。`,
+    describe: `<span class="describe-Highlight" aria-tooltip="*现代人类宇宙学依然无法很好解释大爆炸之前的状态，有科学家认为那里“没有时间和空间的存在”。">138亿年前*</span>，一场温度极高、尺度极小的大爆炸启动了新一轮<span class="describe-Highlight" aria-tooltip="*有观点认为宇宙处于一种膨胀-坍缩的循环态中，在坍缩阶段，宇宙的进程将会呈现出反演的形态，生命将表现出自老向幼逆生长的奇特形式。">宇宙呼吸的进程*</span>。伴随着持续的膨胀，宇宙的温度和密度迅速下降，使宇宙得以完成原初核合成。在随后的漫长岁月中,原子和分子们逐渐复合成为各种气体和尘埃，在分裂、坍缩、聚拢中形成了古老星云的雏形，逐渐开始了对恒星的孕育。`,
   },
   year_57: {
     id: 2,
@@ -35,7 +35,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Upsilon Cosmic Voids",
     earBefore: false,
     layoutRight: false,
-    describe: `这片大尺度宇宙结构空窗区如迷一般突然诞生于大犬座与天兔座方向的深空之中，在人类有史以来的数万年内都不曾有能力察觉到它的存在。但随着新纪元（New.Era)之后对图兰神迹的出现，一些有关史前高等文明的科考成果陆续解密，这片强烈冲击人类宇宙认知的宇宙<span class="describe-Highlight">空洞*</span>才第一次进入了我们的视野。`,
+    describe: `这片大尺度宇宙结构空窗区如迷一般突然诞生于大犬座与天兔座方向的深空之中，在人类有史以来的数万年内都不曾有能力察觉到它的存在。但随着新纪元（New.Era)之后对图兰神迹的出现，一些有关史前高等文明的科考成果陆续解密，这片强烈冲击人类宇宙认知的宇宙<span class="describe-Highlight" aria-tooltip="*空洞：*在天文学里，指纤维状结构之间的空间，空洞与纤维状结构一起是宇宙组成中最大尺度的结构。空洞中只包含很少或完全不包含任何星系。">空洞*</span>才第一次进入了我们的视野。`,
   },
   year_52: {
     id: 3,
@@ -55,7 +55,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The solar system was born",
     earBefore: false,
     layoutRight: false,
-    describe: `46亿年前，在银河系的猎户臂上，一团巨型原始<span class="describe-Highlight">星云*</span>物质在引力的作用下逐渐旋转聚拢、坍缩、直到温度高到触发了核聚变反应。最终，高温辐射所产生的热膨胀与引力的坍缩达成了稳定的平衡态，一颗中等质量恒星逐渐成型，正式步入了主序星阶段。而它周围的尘埃物质在辐射、太阳风、引力的多重影响下不断聚合、碰撞形成了一颗颗行星，其中之一便是我们的地球。`,
+    describe: `46亿年前，在银河系的猎户臂上，一团巨型原始<span class="describe-Highlight" aria-tooltip="*星云：大爆炸形成的原子、原子核及分子复合成气体，再由气体逐渐凝聚形成星云。">星云*</span>物质在引力的作用下逐渐旋转聚拢、坍缩、直到温度高到触发了核聚变反应。最终，高温辐射所产生的热膨胀与引力的坍缩达成了稳定的平衡态，一颗中等质量恒星逐渐成型，正式步入了主序星阶段。而它周围的尘埃物质在辐射、太阳风、引力的多重影响下不断聚合、碰撞形成了一颗颗行星，其中之一便是我们的地球。`,
   },
   year_385: {
     id: 5,
@@ -77,7 +77,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Cambrian life explosion",
     earBefore: false,
     layoutRight: false,
-    describe: `"5亿年前，一个困扰人类历史学家至今的时期——<span class="describe-Highlight">寒武纪*</span>虽然地球上早在40亿年前就存在了生命，但是绝大部分都以单细胞存在，并且几乎没有留下肉眼可见的痕迹。而寒武纪时期，突然出现了几乎地球动物的祖先（各种节肢动物、软体动物、腕足动物、环节动物、脊柱动物等）。以至于地球人类一度认为所谓的寒武纪生命大爆发不过是一场假象。然而越来越多的化石出土，似乎又印证了它的真实存在，那么寒武纪的真相到底是什么呢？"`,
+    describe: `"5亿年前，一个困扰人类历史学家至今的时期——<span class="describe-Highlight" aria-tooltip="*寒武纪：约开始于5.43亿年前，结束于4.9亿年前。为古生代第一个纪。">寒武纪*</span>虽然地球上早在40亿年前就存在了生命，但是绝大部分都以单细胞存在，并且几乎没有留下肉眼可见的痕迹。而寒武纪时期，突然出现了几乎地球动物的祖先（各种节肢动物、软体动物、腕足动物、环节动物、脊柱动物等）。以至于地球人类一度认为所谓的寒武纪生命大爆发不过是一场假象。然而越来越多的化石出土，似乎又印证了它的真实存在，那么寒武纪的真相到底是什么呢？"`,
   },
   year_320: {
     id: 7,
@@ -107,7 +107,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Birth of Civilization",
     earBefore: "AD.前",
     layoutRight: true,
-    describe: `楔形文字、灌溉技术、太阳历、苏美尔王表、六十进制，城市...幼发拉底河畔在短时间内所涌现出的这一切显得那么伟大且不可思议，人类似乎在那片土地、那段时间内迅速从“智慧生命”步入了“<span class="describe-Highlight">文明*</span>”的阶段。但从更大的时代尺度来看，这段转瞬即逝的文明时代却给与了后人无限的质疑和遐想。`,
+    describe: `楔形文字、灌溉技术、太阳历、苏美尔王表、六十进制，城市...幼发拉底河畔在短时间内所涌现出的这一切显得那么伟大且不可思议，人类似乎在那片土地、那段时间内迅速从“智慧生命”步入了“<span class="describe-Highlight" aria-tooltip="*苏美尔文明：指的是苏美尔地区以苏美尔语文献为主要标志的文明，古代地名苏美尔，位于今伊拉克东南部幼发拉底河和底格里斯河下游，是当代人类史一致认同的最早的文明中心。">文明*</span>”的阶段。但从更大的时代尺度来看，这段转瞬即逝的文明时代却给与了后人无限的质疑和遐想。`,
   },
   year_18: {
     id: 10,
@@ -117,7 +117,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Industrial Revolution",
     earBefore: "AD.",
     layoutRight: false,
-    describe: `AD1765年，一台“<span class="describe-Highlight">珍妮机*</span>”的出现，标志着人类正式开启了“工业革命“。生产力飞跃式发展，生产方式的根本性改变，为社会、文化和政治带来了巨大变革，人类从传统农业社会快步进入现代工业社会。200年来，人类社会科技水平飞速提升，财富快速累积，人类的平均寿命也近乎翻倍。`,
+    describe: `AD1765年，一台“<span class="describe-Highlight" aria-tooltip="*珍妮机：1764年，一位名叫詹姆斯·哈格里夫斯的纺织工，制造了一台以他女儿珍妮命名的纺纱机。相比旧式纺车效率提高了8倍，也由此开启了工业革命。">珍妮机*</span>”的出现，标志着人类正式开启了“工业革命“。生产力飞跃式发展，生产方式的根本性改变，为社会、文化和政治带来了巨大变革，人类从传统农业社会快步进入现代工业社会。200年来，人类社会科技水平飞速提升，财富快速累积，人类的平均寿命也近乎翻倍。`,
   },
   year_1961: {
     id: 11,
@@ -127,7 +127,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Humans march into space",
     earBefore: "AD.",
     layoutRight: true,
-    describe: `1961年4月12日，<span class="describe-Highlight">尤里·加加林*</span>乘坐东方1号宇宙飞船从拜克努尔发射场起航，在轨道上绕地球一周，历时1小时48分，于10点55分安全返回，完成了世界上首次载人宇宙飞行。这一历史性的事件标志着人类进入了太空时代，成为了太空探索的重要里程碑，人类终于向那梦寐以求的星空踏出了坚实的一步`,
+    describe: `1961年4月12日，<span class="describe-Highlight" aria-tooltip="*尤里·加加林：全名——尤里·阿列克谢耶维奇·加加林，是第一个进入太空的地球宇航员。">尤里·加加林*</span>乘坐东方1号宇宙飞船从拜克努尔发射场起航，在轨道上绕地球一周，历时1小时48分，于10点55分安全返回，完成了世界上首次载人宇宙飞行。这一历史性的事件标志着人类进入了太空时代，成为了太空探索的重要里程碑，人类终于向那梦寐以求的星空踏出了坚实的一步`,
   },
   year_1969: {
     id: 12,
@@ -137,7 +137,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "First Step on Outerworld",
     earBefore: "AD.",
     layoutRight: false,
-    describe: `1969年7月21日，美国的“阿波罗11号”宇宙飞船载着三名宇航员成功登上月球，“<span class="describe-Highlight">这只是一个人的一小步，但却是整个人类的一大步。*</span>”人类的登月成就在世界范围内引起了巨大的反响，它成为了人类科学、技术和勇气的象征。登月不仅改变了人们对太空的看法，也促进了太空科学的发展，为后续的太空探索和国际合作铺平了道路。`,
+    describe: `1969年7月21日，美国的“阿波罗11号”宇宙飞船载着三名宇航员成功登上月球，“<span class="describe-Highlight" aria-tooltip="*美国宇航员尼尔·阿姆斯特朗在踏上月球表面这一历史时刻时，道出的被后人奉为经典的话。">这只是一个人的一小步，但却是整个人类的一大步。*</span>”人类的登月成就在世界范围内引起了巨大的反响，它成为了人类科学、技术和勇气的象征。登月不仅改变了人们对太空的看法，也促进了太空科学的发展，为后续的太空探索和国际合作铺平了道路。`,
   },
   year_1971: {
     id: 13,
@@ -157,7 +157,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Fast Radio Bursts 150418",
     earBefore: "AD.",
     layoutRight: false,
-    describe: `首次被人类确定出精确距离的<span class="describe-Highlight">快速射电暴*</span>，其射电余辉经历6天之后才完全不可探测到。研究人员认为这个快速射电暴来自一次毁灭性的天体物理爆发事件，它促使科学家们更加努力地寻找这些宇宙中的神秘信号的来源，并进一步推动了对宇宙中未知现象的理解。`,
+    describe: `首次被人类确定出精确距离的<span class="describe-Highlight" aria-tooltip="*快速射电暴：一种只持续几毫秒的无线电波，是宇宙中极为强烈的能量释放事件。通常认为它们源于遥远的星系，但关于它们是如何生成的，目前尚缺乏被普遍接受的解释。">快速射电暴*</span>，其射电余辉经历6天之后才完全不可探测到。研究人员认为这个快速射电暴来自一次毁灭性的天体物理爆发事件，它促使科学家们更加努力地寻找这些宇宙中的神秘信号的来源，并进一步推动了对宇宙中未知现象的理解。`,
   },
   year_2035: {
     id: 15,
@@ -177,7 +177,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "First view of Sunset Crystal",
     earBefore: "AD.",
     layoutRight: false,
-    describe: `2083年1月12日起，由ISEC主导开始执行的谷神星联合勘探考察行动。在约一个月后，黎明号抵达谷神星。在本次行动中，人类首次发现<span class="describe-Highlight">落日晶*</span>，并带回了少量样本。同期，地球异常气候变化、地质现象增多，岩层中开始探测到类似落日晶的矿物。`,
+    describe: `2083年1月12日起，由ISEC主导开始执行的谷神星联合勘探考察行动。在约一个月后，黎明号抵达谷神星。在本次行动中，人类首次发现<span class="describe-Highlight" aria-tooltip="*落日晶：最早被发现的星尘矿物，含有大量偏固态物质及星尘，经由某些极强的作用力形成的复合相矿物。因行星上地形特质的不同，存在有多种相组。">落日晶*</span>，并带回了少量样本。同期，地球异常气候变化、地质现象增多，岩层中开始探测到类似落日晶的矿物。`,
   },
   year_2089: {
     id: 17,
@@ -187,7 +187,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Pure Stardust Refined",
     earBefore: "AD.",
     layoutRight: true,
-    describe: `人类对于落日晶的形成与性质都毫无头绪，但其潜在的科研价值与经济价值都让世界各国无法忽视。无数先驱为了落日晶的研究<span class="describe-Highlight">献出了生命*</span>，但仍有人冒着危险，在历经无数艰辛于困苦，最终从落日晶中提炼出了颠覆时代的物质——星尘。`,
+    describe: `人类对于落日晶的形成与性质都毫无头绪，但其潜在的科研价值与经济价值都让世界各国无法忽视。无数先驱为了落日晶的研究<span class="describe-Highlight" aria-tooltip="*梅兹洛纳亚事件：2089年11月15日，雅库茨克市梅兹洛纳亚街区发生剧烈爆炸，是人类首次因星尘研究产生的重大事故，但太空地质研究所留下的大量研究成果为人类日后对星尘技术的发展奠定了坚实的基础。">献出了生命*</span>，但仍有人冒着危险，在历经无数艰辛于困苦，最终从落日晶中提炼出了颠覆时代的物质——星尘。`,
   },
   year_2101: {
     id: 19,
@@ -197,7 +197,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "The Interphase Revolution",
     earBefore: "AD.",
     layoutRight: false,
-    describe: `以雅库茨克事件留下的研究资料为基础，<span class="describe-Highlight">稳相皿*</span>（Steady Phase Utensil）诞生，解决了星尘存储的问题。而后<span class="describe-Highlight">雅库茨克引擎*</span>的诞生，标志着人类初步掌握了星尘相变的规律，由星尘带来的技术革命在各个领域不断爆发。`,
+    describe: `以雅库茨克事件留下的研究资料为基础，<span class="describe-Highlight" aria-tooltip="*稳相皿：为了保存高纯度的星尘所研发的复杂结构容器。">稳相皿*</span>（Steady Phase Utensil）诞生，解决了星尘存储的问题。而后<span class="describe-Highlight" aria-tooltip="*雅库茨克引擎：NPO-RD809型“星尘-反物质引擎”，是人类历史上第一台达到2%光速的航天引擎，标志着人类已初步具有远程星际航行的能力。">雅库茨克引擎*</span>的诞生，标志着人类初步掌握了星尘相变的规律，由星尘带来的技术革命在各个领域不断爆发。`,
   },
   year_2144: {
     id: 20,
@@ -288,7 +288,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Alpenglow Blood Named",
     earBefore: "N.E.",
     layoutRight: true,
-    describe: `圣瞳会科研机构“圣典部”基于三百余年的科研资料，初步完善了有关异能人类的科学体系，将其定名为“<span class="describe-Highlight">染山霞血脉*</span>”，并发表了第一份官方研究报告《燃烧的血脉》（Burning Blood）。`,
+    describe: `圣瞳会科研机构“圣典部”基于三百余年的科研资料，初步完善了有关异能人类的科学体系，将其定名为“<span class="describe-Highlight" aria-tooltip="*染山霞血脉：普通人类中极其稀少的特殊个体，对星尘的耐受度极高，血液颜色会显示出橘红与藏青的混和趋势，在经过星语者学院的训练和改造后可能成为星语者。">染山霞血脉*</span>”，并发表了第一份官方研究报告《燃烧的血脉》（Burning Blood）。`,
   },
   year_862: {
     id: 29,
@@ -308,7 +308,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Starwhisperd College Established",
     earBefore: "N.E.",
     layoutRight: true,
-    describe: `星语者衍刻技术实验成功，<span class="describe-Highlight">埃卡妮亚*</span>成为了第一个星语者，在完成最初级的衍刻与星语网络通讯设备建设后，星语者学院成立。这个在当时并未受到关注的组织，用历史上第一艘星舰和第一支染山霞舰队，以压倒性的力量终止了战争。`,
+    describe: `星语者衍刻技术实验成功，<span class="describe-Highlight" aria-tooltip="*埃卡妮亚：星语者学院现任院长，被誉为“解理战争的英雄”。">埃卡妮亚*</span>成为了第一个星语者，在完成最初级的衍刻与星语网络通讯设备建设后，星语者学院成立。这个在当时并未受到关注的组织，用历史上第一艘星舰和第一支染山霞舰队，以压倒性的力量终止了战争。`,
   },
   year_958: {
     id: 31,
@@ -318,7 +318,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Eridanus Agreement Signed",
     earBefore: "N.E.",
     layoutRight: false,
-    describe: `埃卡妮亚率领的染山霞舰队在逼停解理战争参战双方后，于次年组织签订了《波江座协定》，即《解理战争终止及星际各方合作协定》。会议期间，埃卡妮亚发布关于染山霞血脉的报告《最初的聆听者》（The Origin Listener），介绍染山霞血脉高级形态，正式命名其为<span class="describe-Highlight">星语者*</span>，同时提出了<span class="describe-Highlight">伞形社会*</span>的理念。`,
+    describe: `埃卡妮亚率领的染山霞舰队在逼停解理战争参战双方后，于次年组织签订了《波江座协定》，即《解理战争终止及星际各方合作协定》。会议期间，埃卡妮亚发布关于染山霞血脉的报告《最初的聆听者》（The Origin Listener），介绍染山霞血脉高级形态，正式命名其为<span class="describe-Highlight" aria-tooltip="*星语者：由染山霞血脉训练而来，当前星际社会的中坚力量。">星语者*</span>，同时提出了<span class="describe-Highlight">伞形社会*</span>的理念。`,
   },
   year_992: {
     id: 32,
@@ -328,7 +328,7 @@ const timeLine: Record<string, EventType> = {
     titleEn: "Sea of Light Declared",
     earBefore: "N.E.",
     layoutRight: true,
-    describe: `在星语者与星语技术走向星际舞台后并被广泛认可后，埃卡妮亚以学院院长、伞形社会持伞人的身份，发表《<span class="describe-Highlight">光海声明</span>》，正式呼吁星际各界应勇于开发新领域，将人类的足迹遍布各个角落，由此正式开启了人类朝银河深处的大开拓运动。`,
+    describe: `在星语者与星语技术走向星际舞台后并被广泛认可后，埃卡妮亚以学院院长、伞形社会持伞人的身份，发表《<span class="describe-Highlight" aria-tooltip="光海声明纪念碑让人类忘记那一段杀戮的历史，共同迈向历史的新纪元">光海声明</span>》，正式呼吁星际各界应勇于开发新领域，将人类的足迹遍布各个角落，由此正式开启了人类朝银河深处的大开拓运动。`,
   },
   year_1012: {
     id: 33,
