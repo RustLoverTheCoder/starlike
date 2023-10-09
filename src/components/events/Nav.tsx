@@ -331,7 +331,7 @@ export const Nav = () => {
         <div className="hy-line-l w-[198px] bg-[url(/images/events/nav-line\_left.png)] bg-left h-px"></div>
       </div>
 
-      <div className="hy-nav-container w-[calc(100%_-_193.5px)] box-border overflow-hidden whitespace-nowrap touch-pan-y mt-0 -mb-4 mx-auto">
+      <div className="hy-nav-container w-[calc(100%_-_193.5px)] box-border overflow-x-auto overflow-y-hidden whitespace-nowrap touch-pan-y mt-0 -mb-4 mx-auto">
         <div className="hy-nav-inner inline-block" ref={innerRef}>
           {timeLine.map((item) => (
             <div
