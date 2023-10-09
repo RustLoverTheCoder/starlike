@@ -1,7 +1,8 @@
 import { cn } from "@utils/cn";
 import { useAtomValue } from "jotai";
 import { yearAtom } from "./atoms";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { autoPlacement, computePosition, offset } from "@floating-ui/dom";
 import "./index.css";
 
 type EventType = {
@@ -345,10 +346,60 @@ const timeLine: Record<string, EventType> = {
 export const Events = () => {
   const year = useAtomValue(yearAtom);
   const { title, titleEn } = timeLine[`year_${year}`];
+  const [tooltipContent, setTooltipContent] = useState("");
   const event = useMemo(() => {
     return timeLine?.[`year_${year}`] || {};
   }, [year]);
   const direction = !!event?.layoutRight ? "right" : "left";
+
+  // tooltip
+  useEffect(() => {
+    // 所有的高亮元素
+    const targets = document.querySelectorAll(".describe-Highlight");
+    const tooltip: HTMLDivElement | null = document.querySelector("#tooltip");
+    if (!tooltip) {
+      return;
+    }
+
+    const handleMouseEnter = (e: any, target: any) => {
+      // 获取tooltip内容
+      // @ts-ignore
+      const content = e.target?.getAttribute("aria-tooltip") || "";
+      // 创建tooltip
+      setTooltipContent(content);
+      setTimeout(() => {
+        requestAnimationFrame(() => {
+          computePosition(target, tooltip, {
+            placement: "top",
+            middleware: [offset(10), autoPlacement()],
+          }).then(({ x, y }) => {
+            Object.assign(tooltip.style, {
+              left: `${x}px`,
+              top: `${y}px`,
+              opacity: "1",
+            });
+          });
+        });
+      });
+    };
+    const handleMouseLeave = () => {
+      tooltip.style.opacity = "0";
+    };
+    // 监听targets鼠标移入事件
+    targets.forEach((target) => {
+      target.addEventListener("mouseenter", (e) => handleMouseEnter(e, target));
+      target.addEventListener("mouseleave", handleMouseLeave);
+    });
+    return () => {
+      targets.forEach((target) => {
+        target.removeEventListener("mouseenter", (e) =>
+          handleMouseEnter(e, target)
+        );
+        target.removeEventListener("mouseleave", handleMouseLeave);
+      });
+    };
+  }, [year]);
+
   return (
     <div
       className="w-screen h-screen relative text-white"
@@ -407,6 +458,12 @@ export const Events = () => {
               <p dangerouslySetInnerHTML={{ __html: event.describe }} />
             </div>
           </div>
+        </div>
+      </div>
+      {/* tooltip */}
+      <div className="tooltip max-w-[250px] block p-0 m-0" id="tooltip">
+        <div className="tooltip-content min-w-[32px] min-h-[32px] text-start no-underline bg-[rgba(0,0,0,0.85)] shadow-[0_6px_16px_0_rgba(0,0,0,0.08),0_3px_6px_-4px_rgba(0,0,0,0.12),0_9px_28px_8px_rgba(0,0,0,0.05)] box-border px-2 py-1.5 rounded-md text-sm text-white">
+          {tooltipContent}
         </div>
       </div>
     </div>

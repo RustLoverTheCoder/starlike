@@ -2,3 +2,7 @@
     @apply relative text-[#ffe6b7];
     text-shadow: 0 5px 8px rgba(0, 0, 0, 0.38), 0 5px 8px rgba(0, 0, 0, 0.38);
 }
+
+.tooltip {
+    @apply absolute top-0 left-0 z-10 transition-opacity;
+}
