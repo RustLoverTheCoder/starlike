@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Audio.css";
 
 export const Audio = () => {
-  const [audioPlayStatus, setAudioPlayStatus] = useState(false);
+  const [audioPlayStatus, setAudioPlayStatus] = useState(true);
   const musicEl = useRef<HTMLAudioElement>(null);
   const audioMp3Src = "/audio/theme.mp3";
   useEffect(() => {
@@ -41,6 +41,7 @@ export const Audio = () => {
         hidden
         onPause={pauseAudio}
         onPlay={playAudio}
+        autoPlay
       >
         <source src={audioMp3Src} type="audio/mpeg" />
       </audio>
