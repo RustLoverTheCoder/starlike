@@ -1,8 +1,10 @@
 import { cn } from "@utils/cn";
-import { useAtomValue } from "jotai";
-import { yearAtom } from "./atoms";
-import { useEffect, useMemo, useState } from "react";
+import { useAtom, useAtomValue } from "jotai";
+import { nextYearAtom, yearAtom } from "./atoms";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { autoPlacement, computePosition, offset } from "@floating-ui/dom";
+import gasp, { Power3, TweenMax } from "gsap";
+import { useRafInterval } from "ahooks";
 import "./index.css";
 
 type EventType = {
@@ -344,13 +346,66 @@ const timeLine: Record<string, EventType> = {
 };
 
 export const Events = () => {
-  const year = useAtomValue(yearAtom);
-  const { title, titleEn } = timeLine[`year_${year}`];
+  const [year, setYear] = useAtom(yearAtom);
   const [tooltipContent, setTooltipContent] = useState("");
   const event = useMemo(() => {
     return timeLine?.[`year_${year}`] || {};
   }, [year]);
   const direction = !!event?.layoutRight ? "right" : "left";
+  const infoRef = useRef<HTMLDivElement>(null);
+  const bgRef = useRef<HTMLImageElement>(null);
+  const nextYear = useAtomValue(nextYearAtom);
+
+  const startAnimation = () => {
+    const timeline = gasp.timeline();
+    // timeline.add(sectionBeforeStart(year), 0.6);
+  };
+
+  const sectionBeforeStart = () => {
+    const timeline = gasp.timeline();
+    timeline.set([infoRef.current, bgRef.current], {
+      // 初始化视距
+      transformPerspective: 1000,
+    });
+    let time = 0.3;
+    timeline.add(
+      TweenMax.fromTo(
+        bgRef.current,
+        time,
+        {
+          immediateRender: true,
+          z: "4vh",
+          opacity: 0,
+          ease: Power3.easeOut,
+        },
+        {
+          z: "0vh",
+          opacity: 1,
+        }
+      ),
+      0
+    );
+    timeline.add(
+      TweenMax.fromTo(
+        infoRef.current,
+        time,
+        {
+          immediateRender: true,
+          z: "7vh",
+          opacity: 0,
+        },
+        {
+          z: "0vh",
+          opacity: 1,
+        }
+      ),
+      0
+    );
+  };
+
+  useRafInterval(() => {
+    setYear(nextYear)
+  }, 3000);
 
   // tooltip
   useEffect(() => {
@@ -406,6 +461,11 @@ export const Events = () => {
     };
   }, [year]);
 
+  // animation
+  useEffect(() => {
+    sectionBeforeStart();
+  }, []);
+
   return (
     <div
       className="w-screen h-screen relative text-white"
@@ -415,11 +475,15 @@ export const Events = () => {
       }}
     >
       <img
+        ref={bgRef}
         src={`/images/events/${year}.webp`}
         alt="events"
         className="w-full h-full object-cover object-center"
       />
-      <div className="absolute w-screen box-border px-[129px] py-0 left-0 bottom-[18vh]">
+      <div
+        ref={infoRef}
+        className="absolute w-screen box-border px-[129px] py-0 left-0 bottom-[18vh]"
+      >
         <div
           className="hy-info relative w-full h-full"
           style={{
