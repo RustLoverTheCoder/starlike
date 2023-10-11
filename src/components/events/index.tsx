@@ -1,11 +1,12 @@
 import { cn } from "@utils/cn";
 import { useAtom, useAtomValue } from "jotai";
-import { nextYearAtom, yearAtom } from "./atoms";
+import { nextYearAtom, timerAtom, yearAtom } from "./atoms";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { autoPlacement, computePosition, offset } from "@floating-ui/dom";
 import gasp, { Power3, TweenMax } from "gsap";
 import { useRafInterval } from "ahooks";
 import "./index.css";
+import useEffectWithPrevDeps from "@hooks/useEffectWithPrevDeps";
 
 type EventType = {
   id: number;
@@ -355,6 +356,7 @@ export const Events = () => {
   const infoRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLImageElement>(null);
   const nextYear = useAtomValue(nextYearAtom);
+  const timer = useAtomValue(timerAtom)
 
   const startAnimation = () => {
     const timeline = gasp.timeline();
@@ -403,9 +405,79 @@ export const Events = () => {
     );
   };
 
+  const sectionForwardTransition = () => {
+    const textEl = infoRef.current;
+    const bgEl = bgRef.current;
+    let easeType = Power3.easeIn;
+
+    let timeline = gasp.timeline();
+
+    // 时间线配置
+    timeline.set([textEl, bgEl], {
+      // 初始化视距
+      transformPerspective: 1000,
+    });
+    timeline.add("begin");
+
+    // 文字放大
+    timeline.add(
+      TweenMax.fromTo(
+        textEl,
+        1.3,
+        {
+          immediateRender: true,
+          z: "0vh",
+        },
+        {
+          z: "100vh",
+          ease: easeType,
+        }
+      ),
+      0
+    );
+    // 背景放大
+    timeline.add(
+      TweenMax.fromTo(
+        bgEl,
+        1.3,
+        {
+          immediateRender: true,
+          z: "0vh",
+        },
+        {
+          webkitFilter: "blur(5px)",
+          filter: "blur(5px)",
+          z: "60vh",
+          ease: easeType,
+        }
+      ),
+      0
+    );
+    // 背景在动画快结束时，变成透明状态
+    timeline.add(
+      TweenMax.fromTo(
+        bgEl,
+        0.8,
+        {
+          immediateRender: true,
+          opacity: 1,
+        },
+        {
+          opacity: 0.2,
+          ease: easeType,
+          onComplete() {
+            // sectionBeforeStart()
+          },
+        }
+      ),
+      "-=0.8"
+    );
+  };
+
   useRafInterval(() => {
-    setYear(nextYear)
-  }, 3000);
+    // 执行下一个动画
+    sectionForwardTransition()
+  }, timer);
 
   // tooltip
   useEffect(() => {
@@ -460,11 +532,6 @@ export const Events = () => {
       });
     };
   }, [year]);
-
-  // animation
-  useEffect(() => {
-    sectionBeforeStart();
-  }, []);
 
   return (
     <div

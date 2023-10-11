@@ -269,3 +269,6 @@ export const prevYearAtom = atom((get) => {
   const index = timeLine.findIndex((item) => item.year === year);
   return timeLine[index - 1]?.year;
 });
+
+// 定时器
+export const timerAtom = atom<number | undefined>(3000);
