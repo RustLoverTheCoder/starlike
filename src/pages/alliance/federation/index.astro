@@ -2,6 +2,9 @@
 import { ViewTransitions } from 'astro:transitions';
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
+import { AlliancePage } from '@components/alliance/page';
+import { Audio } from "@components/events/Audio";
+import { AllianceNav } from '@components/alliance/nav';
 ---
 
 <html lang="zh-Hans-CN">
@@ -14,7 +17,9 @@ import "@styles/global.css";
     <ViewTransitions />
   </head>
   <body>
-    <div class="w-full h-full relative">federation</div>
+    <AlliancePage client:idle type="federation" />
+    <AllianceNav type="federation" />
+    <AppHeader client:idle />
+    <Audio client:idle />
   </body>
-  <AppHeader client:idle />
 </html>

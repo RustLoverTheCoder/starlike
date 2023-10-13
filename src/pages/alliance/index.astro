@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
+import { Audio } from "@components/events/Audio";
 const alliances = [
   {
     name: "selene",
@@ -92,5 +93,6 @@ const alliances = [
       </div>
     </div>
     <AppHeader client:idle />
+    <Audio client:idle />
   </body>
 </html>

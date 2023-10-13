@@ -1,6 +1,9 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
+import { AlliancePage } from "@components/alliance/page";
+import { AllianceNav } from "@components/alliance/nav";
+import { Audio } from "@components/events/Audio";
 import "@styles/global.css";
 ---
 
@@ -14,7 +17,9 @@ import "@styles/global.css";
     <ViewTransitions />
   </head>
   <body>
-    <div class="w-full h-full relative">selene</div>
+    <AlliancePage client:idle type="selene" />
+    <AllianceNav type="selene" />
+    <AppHeader client:idle />
+    <Audio client:idle />
   </body>
-  <AppHeader client:idle />
 </html>
