@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
 const alliances = [
@@ -49,45 +49,47 @@ const alliances = [
     <div class="w-full h-full relative">
       <div id="hy-alliance" class="w-full h-full relative">
         <div
-          class="hy-alliance-container w-full h-full relative px-8 grid grid-cols-5 gap-7 py-16"
+          class="hy-alliance-container w-full h-full relative px-8 flex justify-center items-center space-x-7 py-16"
         >
           {
             alliances.map((alliance) => {
               return (
-                <a
-                  href={alliance.path}
-                  class="hy-alliance-item relative inline-block w-full h-full text-white shadow-[0_0_0_#fff] group cursor-pointer hover:-translate-y-16 transition-all duration-300"
-                >
-                  <div
-                    class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
-                    style={{
-                      backgroundImage: `url(/images/alliance/${alliance.name}_bg.webp)`,
-                    }}
-                  />
-                  <div
-                    class={`absolute top-0 left-0 right-0 bottom-0 bg-no-repeat bg-cover bg-bottom opacity-0 group-hover:opacity-100 transition-all ease-out duration-300`}
-                    style={{
-                      backgroundImage: `url(/images/alliance/${alliance.name}_bg_active.webp)`,
-                    }}
-                  />
-                  <div class="hy-info flex flex-col items-center text-center w-full absolute left-0 right-0 bottom-0">
-                    <img
-                      src={`/images/alliance/${alliance.name}_icon.png`}
-                      alt=""
-                      class="h-[120px] mb-3"
+                <>
+                  <a
+                    href={alliance.path}
+                    class="hy-alliance-item relative inline-block w-[200px] h-full text-white shadow-[0_0_0_#fff] group cursor-pointer hover:-translate-y-16 transition-all duration-300"
+                  >
+                    <div
+                      class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
+                      style={{
+                        backgroundImage: `url(/images/alliance/${alliance.name}_bg.webp)`,
+                      }}
                     />
+                    <div
+                      class={`absolute top-0 left-0 right-0 bottom-0 bg-no-repeat bg-cover bg-bottom opacity-0 group-hover:opacity-100 transition-all ease-out duration-300`}
+                      style={{
+                        backgroundImage: `url(/images/alliance/${alliance.name}_bg_active.webp)`,
+                      }}
+                    />
+                    <div class="hy-info flex flex-col items-center text-center w-full absolute left-0 right-0 bottom-0">
+                      <img
+                        src={`/images/alliance/${alliance.name}_icon.png`}
+                        alt=""
+                        class="h-[120px] mb-3"
+                      />
 
-                    <div class="hy-name opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                      <div class="hy-name_cn h-8 leading-8">
-                        {alliance.name_cn}
+                      <div class="hy-name opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
+                        <div class="hy-name_cn h-8 leading-8">
+                          {alliance.name_cn}
+                        </div>
+                        <div class="hy-name_en h-8 leading-8">
+                          {alliance.name_en}
+                        </div>
                       </div>
-                      <div class="hy-name_en h-8 leading-8">
-                        {alliance.name_en}
-                      </div>
+                      <div class="hy-more h-[72px]" />
                     </div>
-                    <div class="hy-more h-[72px]" />
-                  </div>
-                </a>
+                  </a>
+                </>
               );
             })
           }
