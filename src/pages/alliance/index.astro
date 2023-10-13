@@ -47,9 +47,9 @@ const alliances = [
   </head>
   <body>
     <div class="w-full h-full relative">
-      <div id="hy-alliance" class="w-full h-full relative">
+      <div id="hy-alliance" class="w-full h-full relative overflow-x-auto overflow-y-hidden">
         <div
-          class="hy-alliance-container w-full h-full relative px-8 flex justify-center items-center space-x-7 py-16"
+          class="hy-alliance-container w-full h-full relative px-8 flex justify-center items-center space-x-7 py-16 flex-wrap"
         >
           {
             alliances.map((alliance) => {
@@ -57,14 +57,9 @@ const alliances = [
                 <>
                   <a
                     href={alliance.path}
-                    class="hy-alliance-item relative inline-block w-[200px] h-full text-white shadow-[0_0_0_#fff] group cursor-pointer hover:-translate-y-16 transition-all duration-300"
+                    class="hy-alliance-item relative inline-block w-auto h-full text-white shadow-[0_0_0_#fff] group cursor-pointer hover:-translate-y-16 transition-all duration-300 flex-shrink-0"
                   >
-                    <div
-                      class={`w-full h-full bg-no-repeat bg-cover bg-bottom`}
-                      style={{
-                        backgroundImage: `url(/images/alliance/${alliance.name}_bg.webp)`,
-                      }}
-                    />
+                    <img src={`/images/alliance/${alliance.name}_bg.webp`} alt={alliance.name_cn} class="h-full" />
                     <div
                       class={`absolute top-0 left-0 right-0 bottom-0 bg-no-repeat bg-cover bg-bottom opacity-0 group-hover:opacity-100 transition-all ease-out duration-300`}
                       style={{
