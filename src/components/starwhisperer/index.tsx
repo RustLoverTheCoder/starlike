@@ -42,7 +42,7 @@ export const StarWhisperer = () => {
       {/* info */}
       <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-start items-center px-[120px]">
         <div className="container max-w-[690px]">
-          <div className="title w-full h-auto text-right flex justify-start items-center">
+          <div className="title w-full h-auto text-left flex justify-start items-center">
             <div className="h-[100px] w-10 shadow-[0_0_10px_rgba(255,179,70,0.56),0_0_10px_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56)] ml-6 border-2 border-solid border-[#ffd790]"></div>
             <div className="flex flex-col ml-5">
               <div className="text-6xl mb-2">{list[active].name}</div>
