@@ -2,6 +2,7 @@
 import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
+import { Audio } from "@components/events/Audio";
 const shipList = [
   {
     name: "战列舰",
@@ -52,17 +53,17 @@ const shipList = [
       {
         shipList.map((ship) => {
           return (
-            <div class="w-auto h-full relative flex-shrink-0 group flex items-center group cursor-pointer">
+            <a href="/starship/info" class="w-auto h-full relative flex-shrink-0 group flex items-center group cursor-pointer">
               <div class="relative h-[62%]">
                 <img
                   src="/images/ship/item_bg.jpg"
                   alt=""
                   class="h-full opacity-100 group-hover:opacity-0 transition-opacity duration-300"
                 />
-                <div class="absolute -left-[100px] -right-[100px] flex justify-center items-center group-hover:-translate-y-16 transition-all duration-300 z-20 top-0 bottom-0">
+                <div class="absolute -left-[100px] -right-[100px] flex justify-center items-center group-hover:-translate-y-12 transition-all duration-300 z-20 top-0 bottom-0">
                   <img src={ship.shipUrl} alt="" class={ship.imageHeight} />
                 </div>
-                <div class="absolute top-[14%] left-0 pl-[38px] flex items-end z-20 group-hover:-translate-y-16 transition-all duration-300">
+                <div class="absolute top-[14%] left-0 pl-[38px] flex items-end z-20 group-hover:-translate-y-12 transition-all duration-300">
                   <div class="icon" />
                   <div class="flex flex-col text-[#858585] group-hover:text-white">
                     <div class="text-3xl">{ship.en}</div>
@@ -75,11 +76,12 @@ const shipList = [
                 alt=""
                 class="absolute left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
-            </div>
+            </a>
           );
         })
       }
     </div>
     <AppHeader client:idle />
+    <Audio client:idle />
   </body>
 </html>
