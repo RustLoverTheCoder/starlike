@@ -5,6 +5,21 @@ import "@styles/global.css";
 import { AlliancePage } from "@components/alliance/page";
 import { Audio } from "@components/events/Audio";
 import { AllianceNav } from "@components/alliance/nav";
+const info = {
+  title: "一体汉和",
+  subTitle: "CPGU",
+  data: [
+    { key: "母舰", value: "鸾羽号复合型空间站（Phoenix\'s Feather）" },
+    { key: "发射时间", value: "A.D 2481年11月2日 10:30" },
+    { key: "发射朝向", value: "Gliese 832c -天鹤座'" },
+    { key: "携载人口", value: "1456.8万" },
+    { key: "定居时间", value: "N.E 630年（A.D 4130年）" },
+    { key: "定居母星", value: "辉夙星 - 孔雀星域" },
+    { key: "文化倾向", value: "自由开放，凭借自身经济、科技和学术等方面的优势，向其他文明进行文化输出" },
+    { key: "产业倾向", value: "金融、贸易、文化艺术、信息科技、航空设备、旅游" },
+    { key: "舰队倾向", value: "巡洋舰、驱逐舰" },
+  ],
+};
 ---
 
 <html lang="zh-Hans-CN">
@@ -17,7 +32,7 @@ import { AllianceNav } from "@components/alliance/nav";
     <ViewTransitions />
   </head>
   <body>
-    <AlliancePage client:idle type="cpgu" />
+    <AlliancePage client:idle type="cpgu" info={info} />
     <AllianceNav type="cpgu" />
     <AppHeader client:idle />
     <Audio client:idle />

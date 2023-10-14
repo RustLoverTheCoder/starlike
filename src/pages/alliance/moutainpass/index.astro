@@ -5,6 +5,21 @@ import "@styles/global.css";
 import { AlliancePage } from "@components/alliance/page";
 import { Audio } from "@components/events/Audio";
 import { AllianceNav } from "@components/alliance/nav";
+const info = {
+  title: "芒廷帕斯联合会",
+  subTitle: "MOUTAINPASS FEDERATION",
+  data: [
+    { key: "母舰", value: "首都号复合型空间站（ Capital）" },
+    { key: "发射时间", value: "A.D 2458年3月13日 9:55 " },
+    { key: "发射朝向", value: "TRAPPIST-1d - 宝瓶座" },
+    { key: "携载人口", value: "1654.9万" },
+    { key: "定居时间", value: "N.E 307年（A.D 3807年）" },
+    { key: "定居母星", value: "弗格星 - 金牛星域" },
+    { key: "文化倾向", value: "政治权力高度寡头化，对移民接纳持较为开放的心态，鼓励多劳多得，注重保护资本私有" },
+    { key: "产业倾向", value: "金融、行星矿业、地质勘探、星际物流、大型建筑、生物机械" },
+    { key: "舰队倾向", value: "商旅舰、护卫舰" },
+  ],
+};
 ---
 
 <html lang="zh-Hans-CN">
@@ -17,7 +32,7 @@ import { AllianceNav } from "@components/alliance/nav";
     <ViewTransitions />
   </head>
   <body>
-    <AlliancePage client:idle type="moutainpass" />
+    <AlliancePage client:idle type="moutainpass" info={info} />
     <AllianceNav type="moutainpass" />
     <AppHeader client:idle />
     <Audio client:idle />

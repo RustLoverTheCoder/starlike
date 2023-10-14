@@ -1,10 +1,25 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
-import { AlliancePage } from '@components/alliance/page';
+import { AlliancePage } from "@components/alliance/page";
 import { Audio } from "@components/events/Audio";
-import { AllianceNav } from '@components/alliance/nav';
+import { AllianceNav } from "@components/alliance/nav";
+const info = {
+  title: "沙顿穆恩帝国",
+  subTitle: "SHATON MOUN EMPIRE",
+  data: [
+    { key: "母舰", value: "威荣号复合型空间站（ Majesty）" },
+    { key: "发射时间", value: "A.D 2470年6月17日 14:55" },
+    { key: "发射朝向", value: "Gliese 163c - 剑鱼座" },
+    { key: "携载人口", value: "1077.4万" },
+    { key: "定居时间", value: "N.E 275年（A.D 3775年）" },
+    { key: "定居母星", value: "维德伯特星 - 船底星域" },
+    { key: "文化倾向", value: "高程度的本土文化优越感，强调集体主义和文艺管控，对外崇尚优胜劣汰的丛林法则，对内极力完善社会保障。" },
+    { key: "产业倾向", value: "军工业、纪实文学及影视、建筑业、机械重工、雕塑、人像绘画" },
+    { key: "舰队倾向", value: "战列舰、航空母舰、泰坦" },
+  ],
+};
 ---
 
 <html lang="zh-Hans-CN">
@@ -17,7 +32,7 @@ import { AllianceNav } from '@components/alliance/nav';
     <ViewTransitions />
   </head>
   <body>
-    <AlliancePage client:idle type="empire" />
+    <AlliancePage client:idle type="empire" info={info} />
     <AllianceNav type="empire" />
     <AppHeader client:idle />
     <Audio client:idle />
