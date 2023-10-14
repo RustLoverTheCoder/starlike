@@ -1,6 +1,9 @@
 ---
 import "@styles/global.css";
 import { ViewTransitions } from "astro:transitions";
+import { StarWhisperer } from "@components/starwhisperer";
+import { Audio } from "@components/events/Audio";
+import { AppHeader } from "@components/appHeader/AppHeader";
 ---
 
 <html lang="zh-Hans-CN">
@@ -13,6 +16,8 @@ import { ViewTransitions } from "astro:transitions";
     <ViewTransitions />
   </head>
   <body>
-    <div class="w-screen h-screen relative">星语者</div>
+    <StarWhisperer client:idle />
+    <Audio client:idle />
+    <AppHeader client:idle />
   </body>
 </html>
