@@ -1,32 +1,37 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
 import "@styles/global.css";
 const shipList = [
   {
     name: "战列舰",
     en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.png",
+    shipUrl: "/images/ship/ship_0.webp",
+    imageHeight: "h-[150px]",
   },
   {
     name: "驱逐舰",
     en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.png",
+    shipUrl: "/images/ship/ship_1.webp",
+    imageHeight: "h-[128px]",
   },
   {
     name: "护卫舰",
     en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.png",
+    shipUrl: "/images/ship/ship_2.webp",
+    imageHeight: "h-[170px]",
   },
   {
     name: "巡洋舰",
     en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.png",
+    shipUrl: "/images/ship/ship_3.webp",
+    imageHeight: "h-[130px]",
   },
   {
     name: "潜伏舰",
     en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.png",
+    shipUrl: "/images/ship/ship_1.webp",
+    imageHeight: "h-[128px]",
   },
 ];
 ---
@@ -37,30 +42,44 @@ const shipList = [
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>偌星 ｜ Starlike</title>
+    <title>星舰 ｜ 偌星</title>
     <ViewTransitions />
   </head>
   <body>
     <div
-      class="w-full h-full relative bg-[url(/images/ship/bg.webp)] bg-cover bg-center bg-no-repeat flex items-center space-x-[120px] px-[105px] max-h-full overflow-x-auto overflow-y-hidden"
+      class="w-full h-full relative bg-[url(/images/ship/bg.webp)] bg-cover bg-center bg-no-repeat flex items-center justify-center space-x-[7%] px-[105px] max-h-full overflow-x-auto overflow-y-hidden"
     >
       {
         shipList.map((ship) => {
           return (
-            <div class="w-auto h-auto relative flex-shrink-0 group">
-              <div class="absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-                <img src="/images/ship/item_bg.jpg" alt="" class="w-[240px]" />
+            <div class="w-auto h-full relative flex-shrink-0 group flex items-center group cursor-pointer">
+              <div class="relative h-[62%]">
+                <img
+                  src="/images/ship/item_bg.jpg"
+                  alt=""
+                  class="h-full opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+                />
+                <div class="absolute -left-[100px] -right-[100px] flex justify-center items-center group-hover:-translate-y-16 transition-all duration-300 z-20 top-0 bottom-0">
+                  <img src={ship.shipUrl} alt="" class={ship.imageHeight} />
+                </div>
+                <div class="absolute top-[14%] left-0 pl-[38px] flex items-end z-20 group-hover:-translate-y-16 transition-all duration-300">
+                  <div class="icon" />
+                  <div class="flex flex-col text-[#858585] group-hover:text-white">
+                    <div class="text-3xl">{ship.en}</div>
+                    <div class="text-4xl">{ship.name}</div>
+                  </div>
+                </div>
               </div>
               <img
                 src="/images/ship/item_bg_active.jpg"
                 alt=""
-                class="w-[240px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                class="absolute left-0 right-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               />
             </div>
           );
         })
       }
     </div>
+    <AppHeader client:idle />
   </body>
-  <AppHeader client:idle />
 </html>
