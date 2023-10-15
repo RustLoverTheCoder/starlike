@@ -2,39 +2,8 @@
 import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
 import { Audio } from "@components/events/Audio";
+import { ShipInfo } from "@components/ship/Info";
 import "@styles/global.css";
-const shipList = [
-  {
-    name: "战列舰",
-    en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_0.webp",
-    imageHeight: "h-[150px]",
-  },
-  {
-    name: "驱逐舰",
-    en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.webp",
-    imageHeight: "h-[128px]",
-  },
-  {
-    name: "护卫舰",
-    en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_2.webp",
-    imageHeight: "h-[170px]",
-  },
-  {
-    name: "巡洋舰",
-    en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_3.webp",
-    imageHeight: "h-[130px]",
-  },
-  {
-    name: "潜伏舰",
-    en: "BATTLESHIP",
-    shipUrl: "/images/ship/ship_1.webp",
-    imageHeight: "h-[128px]",
-  },
-];
 ---
 
 <html lang="zh-Hans-CN">
@@ -47,6 +16,7 @@ const shipList = [
     <ViewTransitions />
   </head>
   <body>
+    <ShipInfo />
     <AppHeader client:idle />
     <Audio client:idle />
   </body>
