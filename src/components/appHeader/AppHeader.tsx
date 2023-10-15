@@ -256,7 +256,7 @@ const MenuNav = () => {
 
 const Logo = () => {
   return (
-    <a className="hy-logo group relative h-8" href="/home">
+    <a className="hy-logo group relative h-8" href="/">
       <div className="absolute top-0 right-0 left-0 bottom-0">
         <img
           src="/images/common/logo_game_active.png"
