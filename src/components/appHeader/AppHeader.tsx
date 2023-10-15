@@ -11,12 +11,12 @@ const navList = [
   {
     en: "chronicle",
     cn: "编年史",
-    url: "/",
+    url: "/event",
   },
   {
     en: "game introduction",
     cn: "游戏介绍",
-    url: "/home",
+    url: "/introduction",
   },
   {
     en: "camp",
