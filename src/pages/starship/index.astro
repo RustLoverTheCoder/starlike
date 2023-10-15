@@ -9,30 +9,35 @@ const shipList = [
     en: "BATTLESHIP",
     shipUrl: "/images/ship/ship_0.webp",
     imageHeight: "h-[150px]",
+    info: "驱逐舰 舰种搭配、阵型调整、舰长组合. 执政官总是能制定出最策略而在战场上， 就把广袤的舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗",
   },
   {
     name: "驱逐舰",
     en: "BATTLESHIP",
     shipUrl: "/images/ship/ship_1.webp",
     imageHeight: "h-[128px]",
+    info: "驱逐舰 舰种搭配、阵型调整、舰长组合. 执政官总是能制定出最策略而在战场上， 就把广袤的舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗",
   },
   {
     name: "护卫舰",
     en: "BATTLESHIP",
     shipUrl: "/images/ship/ship_2.webp",
     imageHeight: "h-[170px]",
+    info: "驱逐舰 舰种搭配、阵型调整、舰长组合. 执政官总是能制定出最策略而在战场上， 就把广袤的舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗",
   },
   {
     name: "巡洋舰",
     en: "BATTLESHIP",
     shipUrl: "/images/ship/ship_3.webp",
     imageHeight: "h-[130px]",
+    info: "驱逐舰 舰种搭配、阵型调整、舰长组合. 执政官总是能制定出最策略而在战场上， 就把广袤的舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗",
   },
   {
     name: "潜伏舰",
     en: "BATTLESHIP",
     shipUrl: "/images/ship/ship_1.webp",
     imageHeight: "h-[128px]",
+    info: "驱逐舰 舰种搭配、阵型调整、舰长组合. 执政官总是能制定出最策略而在战场上， 就把广袤的舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗舞台交给你所信赖的舰长们 欣赏他们为你上演的精彩角斗",
   },
 ];
 ---
@@ -53,7 +58,10 @@ const shipList = [
       {
         shipList.map((ship) => {
           return (
-            <a href="/starship/info" class="w-auto h-full relative flex-shrink-0 group flex items-center group cursor-pointer">
+            <a
+              href="/starship/info"
+              class="w-auto h-full relative flex-shrink-0 group flex items-center group cursor-pointer"
+            >
               <div class="relative h-[62%]">
                 <img
                   src="/images/ship/item_bg.jpg"
@@ -69,6 +77,12 @@ const shipList = [
                     <div class="text-3xl">{ship.en}</div>
                     <div class="text-4xl">{ship.name}</div>
                   </div>
+                </div>
+                <div class="absolute bottom-10 left-[30%] -right-[50%] z-50 text-sm opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  {ship.info}
+                </div>
+                <div class="absolute left-2 right-2 bottom-5 z-20 flex justify-center">
+                  <div class="w-0 group-hover:w-full h-0.5 bg-[#a38352] transition-all duration-500 origin-center" />
                 </div>
               </div>
               <img
