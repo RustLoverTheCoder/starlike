@@ -3,6 +3,7 @@ import "@styles/global.css";
 import { Audio } from "@components/events/Audio";
 import { ViewTransitions } from "astro:transitions";
 import { AppHeader } from "@components/appHeader/AppHeader";
+import { IntroductionPage } from "@components/introduction/page";
 ---
 
 <html lang="zh-Hans-CN">
@@ -15,9 +16,7 @@ import { AppHeader } from "@components/appHeader/AppHeader";
     <ViewTransitions />
   </head>
   <body>
-    <div>
-      <div>123</div>
-    </div>
+    <IntroductionPage client:idle />
     <AppHeader client:idle />
     <Audio client:idle />
   </body>
