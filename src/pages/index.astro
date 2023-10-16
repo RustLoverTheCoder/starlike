@@ -1,13 +1,10 @@
 ---
-import Bg from "@components/home/bg/index.astro";
-import { Sky } from "@components/home/sky";
-import { Audio } from "@components/events/Audio";
-import { Name } from "@components/home/Name";
-import { AudioBtn } from "@components/home/audio";
-import { HomeInit } from "@components/home/init";
 import "@styles/global.css";
-import { AppHeader } from "@components/appHeader/AppHeader";
+import { Events } from "@components/events";
+import { Audio } from "@components/events/Audio";
+import { Nav } from "@components/events/Nav";
 import { ViewTransitions } from 'astro:transitions';
+import { AppHeader } from "@components/appHeader/AppHeader";
 ---
 
 <html lang="zh-Hans-CN">
@@ -16,18 +13,15 @@ import { ViewTransitions } from 'astro:transitions';
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>偌星-游戏介绍</title>
+    <title>偌星 ｜ Starlike</title>
     <ViewTransitions />
   </head>
   <body>
-    <div class="w-screen h-screen relative">
-      <Bg />
-      <Sky client:idle />
-      <Name client:idle />
-      <AudioBtn client:idle />
+    <div>
+      <Events client:idle />
       <Audio client:idle />
+      <Nav client:idle />
       <AppHeader client:idle />
-      <HomeInit client:only="react" />
     </div>
   </body>
 </html>

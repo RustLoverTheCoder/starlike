@@ -6,12 +6,16 @@ import { Fragment, useState } from "react";
 import { LoginModal } from "./LoginModal";
 import "./AppHeader.css";
 
-
 const navList = [
   {
     en: "chronicle",
     cn: "编年史",
     url: "/event",
+  },
+  {
+    en: "home",
+    cn: "首页",
+    url: "/home",
   },
   {
     en: "game introduction",
@@ -256,7 +260,7 @@ const MenuNav = () => {
 
 const Logo = () => {
   return (
-    <a className="hy-logo group relative h-8" href="/">
+    <a className="hy-logo group relative h-8" href="/home">
       <div className="absolute top-0 right-0 left-0 bottom-0">
         <img
           src="/images/common/logo_game_active.png"
