@@ -6,7 +6,20 @@ import { cn } from "@utils/cn";
 
 export const GalleryModal = () => {
   const [show, setShow] = useAtom(showGalleryModalAtom);
-  const images = ["01", "02", "03", "04", "05", "06"];
+  const images = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+  ];
   const [activeTab, setActiveTab] = useState(0);
   return (
     <>
@@ -21,12 +34,12 @@ export const GalleryModal = () => {
         {/* Full-screen scrollable container */}
         <div className="fixed top-0 right-0 bottom-0 left-0 w-screen overflow-hidden">
           {/* Container to center the panel */}
-          <div className="flex min-h-full items-center justify-center px-[200px] relative">
+          <div className="flex min-h-full items-center justify-center px-[10%] relative py-[10vh]">
             {/* The actual dialog panel  */}
-            <Dialog.Panel className="w-full h-auto grid grid-cols-3 gap-x-[38px] gap-y-[33px]">
-              {images.map((image) => {
+            <Dialog.Panel className="w-full h-auto grid grid-cols-3 gap-x-[38px] gap-y-[33px] overflow-auto max-h-[80vh] scrollbar-0">
+              {images.map((image, index) => {
                 return (
-                  <div className="relative h-auto" key={image}>
+                  <div className="relative h-auto" key={index}>
                     <img
                       src={`/images/gallery/${image}.webp`}
                       alt=""
