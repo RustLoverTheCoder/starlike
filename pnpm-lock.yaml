@@ -7,6 +7,7 @@ specifiers:
   '@better-scroll/core': ^2.5.1
   '@floating-ui/dom': ^1.5.3
   '@headlessui/react': ^1.7.17
+  '@types/lodash.throttle': ^4.1.7
   '@types/react': ^18.0.21
   '@types/react-dom': ^18.0.6
   '@vueuse/core': ^10.4.1
@@ -15,6 +16,7 @@ specifiers:
   clsx: ^2.0.0
   gsap: ^3.12.2
   jotai: ^2.4.3
+  lodash.throttle: ^4.1.1
   react: ^18.0.0
   react-dom: ^18.0.0
   sass: ^1.68.0
@@ -38,6 +40,7 @@ dependencies:
   clsx: 2.0.0
   gsap: 3.12.2
   jotai: 2.4.3_dpmmhqj3uzrk25jjzo7arvivk4
+  lodash.throttle: 4.1.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   sass: 1.68.0
@@ -45,6 +48,9 @@ dependencies:
   tailwind-merge: 1.14.0
   tailwindcss: 3.3.3
   vue: 3.3.4
+
+devDependencies:
+  '@types/lodash.throttle': 4.1.7
 
 packages:
 
@@ -1054,6 +1060,16 @@ packages:
   /@types/json5/0.0.30:
     resolution: {integrity: sha512-sqm9g7mHlPY/43fcSNrCYfOeX9zkTTK+euO5E6+CVijSMm5tTjkVdwdqRkY3ljjIAf8679vps5jKUoJBCLsMDA==}
     dev: false
+
+  /@types/lodash.throttle/4.1.7:
+    resolution: {integrity: sha512-znwGDpjCHQ4FpLLx19w4OXDqq8+OvREa05H89obtSyXyOFKL3dDjCslsmfBz0T2FU8dmf5Wx1QvogbINiGIu9g==}
+    dependencies:
+      '@types/lodash': 4.14.199
+    dev: true
+
+  /@types/lodash/4.14.199:
+    resolution: {integrity: sha512-Vrjz5N5Ia4SEzWWgIVwnHNEnb1UE1XMkvY5DGXrAeOGE9imk0hgTHh5GyDjLDJi9OTCn9oo9dXH1uToK1VRfrg==}
+    dev: true
 
   /@types/mdast/3.0.12:
     resolution: {integrity: sha512-DT+iNIRNX884cx0/Q1ja7NyUPpZuv0KPyL5rGNxm1WC1OtHstl7n4Jb7nk+xacNShQMbczJjt8uFzznpp6kYBg==}
@@ -2507,6 +2523,10 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: false
+
+  /lodash.throttle/4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
     dev: false
 
   /lodash/4.17.21:

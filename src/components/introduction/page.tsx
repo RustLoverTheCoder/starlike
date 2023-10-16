@@ -1,5 +1,7 @@
 import { cn } from "@utils/cn";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import throttle from "lodash.throttle";
+import gsap from "gsap";
 
 const list = [
   {
@@ -11,9 +13,9 @@ const list = [
       "舰种搭配、阵型调整、舰长组合. 优秀的执政官总是能制定出最合时宜的舰队策略而在战场上，就把广袤的舞台交给你所信赖的舰长们 好好欣赏他们为你上演的精彩角斗",
     background: "/images/introduction/bg01.webp",
     screenshot1: "/images/introduction/screenshot01.webp",
-    screenshot1Width: "w-[32vw]",
+    screenshot1Width: "w-[48vw]",
     screenshot2: "/images/introduction/screenshot02.webp",
-    screenshot2Width: "w-[48vw]",
+    screenshot2Width: "w-[32vw]",
     otherTitle: "星语者的",
     otherTitleSubTitle: "策略和养成",
     otherInfo:
@@ -29,9 +31,9 @@ const list = [
       "舰种搭配、阵型调整、舰长组合. 优秀的执政官总是能制定出最合时宜的舰队策略而在战场上，就把广袤的舞台交给你所信赖的舰长们 好好欣赏他们为你上演的精彩角斗",
     background: "/images/introduction/bg02.webp",
     screenshot1: "/images/introduction/screenshot03.webp",
-    screenshot1Width: "w-[32vw]",
+    screenshot1Width: "w-[48vw]",
     screenshot2: "/images/introduction/screenshot04.webp",
-    screenshot2Width: "w-[48vw]",
+    screenshot2Width: "w-[32vw]",
     otherTitle: "星舰的",
     otherTitleSubTitle: "策略和养成",
     otherInfo:
@@ -42,6 +44,8 @@ const list = [
 
 export const IntroductionPage = () => {
   const [current, setCurrent] = useState(0);
+  const screenshot1Ref = useRef(null);
+  const screenshot2Ref = useRef(null);
   const data = list[current];
   const direction = data.direction;
   const screenshot1 = data.screenshot1;
@@ -56,8 +60,33 @@ export const IntroductionPage = () => {
   const otherInfo = data.otherInfo;
   const nav = data.nav;
   const id = data.id;
+  const handleMouseOver = (e: any) => {
+    throttle(() => {
+      let winWidth = window.innerWidth;
+      let winHeight = window.innerHeight;
+
+      let offsetXRate = 0.5 - e.pageX / winWidth; // 光标X轴位置
+      let offsetYRate = 0.5 - e.pageY / winHeight; // 光标Y轴位置
+      let distance = 10;
+      if (!screenshot1Ref.current || !screenshot2Ref.current) {
+        return;
+      }
+      gsap.to(screenshot1Ref.current, 0.4, {
+        overwrite: true,
+        translateX: `${-offsetXRate * distance * 3}px`,
+        translateY: `${-offsetYRate * distance * 2}px`,
+      });
+      gsap.to(screenshot2Ref.current, 0.4, {
+        overwrite: true,
+        translateX: `${-offsetXRate * distance * 6}px`,
+      });
+    }, 50);
+  };
   return (
-    <div className="w-full h-full relative overflow-hidden max-w-full max-h-full bg-[#000000]">
+    <div
+      className="w-full h-full relative overflow-hidden max-w-full max-h-full bg-[#000000]"
+      onMouseOver={handleMouseOver}
+    >
       <img
         src={data.background}
         alt=""
@@ -80,7 +109,12 @@ export const IntroductionPage = () => {
             : "top-[14vh] right-[12.7vw]"
         )}
       >
-        <img src={screenshot2} alt="" className={screenshot1Width} />
+        <img
+          src={screenshot2}
+          alt=""
+          className={screenshot2Width}
+          ref={screenshot2Ref}
+        />
       </div>
       {/* screenshot1 */}
       <div
@@ -91,7 +125,12 @@ export const IntroductionPage = () => {
             : "top-[43vh] right-[20vw]"
         )}
       >
-        <img src={screenshot1} alt="" className={screenshot2Width} />
+        <img
+          src={screenshot1}
+          alt=""
+          className={screenshot1Width}
+          ref={screenshot1Ref}
+        />
       </div>
       {/* title */}
       <div
