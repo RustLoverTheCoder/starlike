@@ -10,42 +10,64 @@ const navList = [
   {
     en: "chronicle",
     cn: "编年史",
-    url: "/event",
+    url: "/",
+    click: () => {
+      window.open("/", "_self");
+    },
   },
   {
     en: "home",
     cn: "首页",
     url: "/home",
+    click: () => {
+      window.open("/home", "_self");
+    },
   },
   {
     en: "game introduction",
     cn: "游戏介绍",
     url: "/introduction",
+    click: () => {
+      window.open("/introduction", "_self");
+    },
   },
   {
     en: "camp",
     cn: "阵营",
     url: "/alliance",
+    click: () => {
+      window.open("/alliance", "_self");
+    },
   },
   {
     en: "starship",
     cn: "星舰",
     url: "/starship",
+    click: () => {
+      window.open("/starship", "_self");
+    },
   },
   {
     en: "celestial body",
     cn: "天体",
     url: "/celestial_body",
+    click: () => {
+      window.open("/celestial_body", "_self");
+    },
   },
   {
     en: "starwhisperer",
     cn: "星语者",
     url: "/starwhisperer",
+    click: () => {
+      window.open("/starwhisperer", "_self");
+    },
   },
   {
     en: "gallery",
     cn: "设定集",
     url: "/gallery",
+    click: () => {},
   },
 ];
 
@@ -186,11 +208,13 @@ const MenuNav = () => {
       <div className="hy-nav-line absolute w-0.5 h-[82%] bg-[linear-gradient(to_bottom,rgba(116,96,54,0)_0%,#746036_3%,#746036_85%,rgba(116,96,54,0)_100%)] right-9" />
       <div className="hy-nav-wrapper flex flex-col gap-11 mr-9">
         {navList.map((item, index) => (
-          <a
-            href={item.url}
+          <div
             onMouseOver={() => setCurrentNav(index)}
             className="hy-item relative shrink-0 inline-block text-white self-end text-right outline-none"
             key={item.url}
+            onClick={() => {
+              item.click && item.click();
+            }}
           >
             <div
               className={cn(
@@ -251,7 +275,7 @@ const MenuNav = () => {
                 <div className="w-0.5 h-24 bg-[linear-gradient(to_bottom,#fbe68e_0%,#fbe68e_80%,#746036_100%)] absolute right-0 -translate-y-16" />
               )}
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>
