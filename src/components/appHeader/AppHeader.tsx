@@ -67,7 +67,9 @@ const navList = [
     en: "gallery",
     cn: "设定集",
     url: "/gallery",
-    click: () => {},
+    click: () => {
+      
+    },
   },
 ];
 
