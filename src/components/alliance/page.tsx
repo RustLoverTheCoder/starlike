@@ -8,7 +8,8 @@ type Info = {
   data: { key: string; value: string }[];
 };
 
-export const AlliancePage = ({ type = 'selene', info }: { type?: string; info: Info }) => {
+export const AlliancePage = ({ allianceType, info }: { allianceType: string; info: Info }) => {
+  const type = allianceType || 'selene'
   return (
     <div className="w-full h-full relative max-w-full max-h-full overflow-hidden">
       <img
