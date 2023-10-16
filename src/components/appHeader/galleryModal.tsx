@@ -49,7 +49,7 @@ export const GalleryModal = () => {
                 );
               })}
             </Dialog.Panel>
-            <Dialog.Panel className="absolute right-[200px] bottom-14">
+            <Dialog.Panel className="absolute right-[200px] bottom-8">
               <div className="flex items-center space-x-8">
                 <div
                   onClick={() => setActiveTab(0)}
