@@ -26,7 +26,7 @@ export const GalleryModal = () => {
             <Dialog.Panel className="w-full h-auto grid grid-cols-3 gap-x-[38px] gap-y-[33px]">
               {images.map((image) => {
                 return (
-                  <div className="relative h-auto">
+                  <div className="relative h-auto" key={image}>
                     <img
                       src={`/images/gallery/${image}.webp`}
                       alt=""
