@@ -25,7 +25,7 @@ import { ViewTransitions } from 'astro:transitions';
       <Sky client:idle />
       <Name client:idle />
       <AudioBtn client:idle />
-      <Audio client:idle />
+      <Audio client:idle transition:persist />
       <AppHeader client:idle />
       <HomeInit client:only="react" />
     </div>
