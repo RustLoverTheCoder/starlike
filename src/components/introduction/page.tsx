@@ -1,6 +1,5 @@
 import { cn } from "@utils/cn";
 import { useState, useRef } from "react";
-import throttle from "lodash.throttle";
 import gsap from "gsap";
 
 const list = [
@@ -61,26 +60,25 @@ export const IntroductionPage = () => {
   const nav = data.nav;
   const id = data.id;
   const handleMouseOver = (e: any) => {
-    throttle(() => {
-      let winWidth = window.innerWidth;
-      let winHeight = window.innerHeight;
+    let winWidth = window.innerWidth;
+    let winHeight = window.innerHeight;
 
-      let offsetXRate = 0.5 - e.pageX / winWidth; // 光标X轴位置
-      let offsetYRate = 0.5 - e.pageY / winHeight; // 光标Y轴位置
-      let distance = 10;
-      if (!screenshot1Ref.current || !screenshot2Ref.current) {
-        return;
-      }
-      gsap.to(screenshot1Ref.current, 0.4, {
-        overwrite: true,
-        translateX: `${-offsetXRate * distance * 3}px`,
-        translateY: `${-offsetYRate * distance * 2}px`,
-      });
-      gsap.to(screenshot2Ref.current, 0.4, {
-        overwrite: true,
-        translateX: `${-offsetXRate * distance * 6}px`,
-      });
-    }, 50);
+    let offsetXRate = 0.5 - e.pageX / winWidth; // 光标X轴位置
+    let offsetYRate = 0.5 - e.pageY / winHeight; // 光标Y轴位置
+    let distance = 10;
+    if (!screenshot2Ref.current || !screenshot1Ref.current) {
+      return;
+    }
+    gsap.to(screenshot2Ref.current, 0.4, {
+      overwrite: true,
+      translateX: `${-offsetXRate * distance * 3}px`,
+      translateY: `${-offsetYRate * distance * 2}px`,
+    });
+    gsap.to(screenshot1Ref.current, 0.4, {
+      overwrite: true,
+      translateX: `${-offsetXRate * distance * 6}px`,
+      translateY: `${-offsetYRate * distance * 4}px`,
+    });
   };
   return (
     <div
@@ -112,7 +110,7 @@ export const IntroductionPage = () => {
         <img
           src={screenshot2}
           alt=""
-          className={screenshot2Width}
+          className={`${screenshot2Width} screenshot2 transform`}
           ref={screenshot2Ref}
         />
       </div>
@@ -128,7 +126,7 @@ export const IntroductionPage = () => {
         <img
           src={screenshot1}
           alt=""
-          className={screenshot1Width}
+          className={`${screenshot1Width} screenshot1`}
           ref={screenshot1Ref}
         />
       </div>
