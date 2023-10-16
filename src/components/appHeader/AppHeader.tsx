@@ -5,73 +5,9 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
 import { LoginModal } from "./LoginModal";
 import "./AppHeader.css";
-
-const navList = [
-  {
-    en: "chronicle",
-    cn: "编年史",
-    url: "/",
-    click: () => {
-      window.open("/", "_self");
-    },
-  },
-  {
-    en: "home",
-    cn: "首页",
-    url: "/home",
-    click: () => {
-      window.open("/home", "_self");
-    },
-  },
-  {
-    en: "game introduction",
-    cn: "游戏介绍",
-    url: "/introduction",
-    click: () => {
-      window.open("/introduction", "_self");
-    },
-  },
-  {
-    en: "camp",
-    cn: "阵营",
-    url: "/alliance",
-    click: () => {
-      window.open("/alliance", "_self");
-    },
-  },
-  {
-    en: "starship",
-    cn: "星舰",
-    url: "/starship",
-    click: () => {
-      window.open("/starship", "_self");
-    },
-  },
-  {
-    en: "celestial body",
-    cn: "天体",
-    url: "/celestial_body",
-    click: () => {
-      window.open("/celestial_body", "_self");
-    },
-  },
-  {
-    en: "starwhisperer",
-    cn: "星语者",
-    url: "/starwhisperer",
-    click: () => {
-      window.open("/starwhisperer", "_self");
-    },
-  },
-  {
-    en: "gallery",
-    cn: "设定集",
-    url: "/gallery",
-    click: () => {
-      
-    },
-  },
-];
+import { GalleryModal } from "./galleryModal";
+import { useAtom, useSetAtom } from "jotai";
+import { showGalleryModalAtom } from "./atoms";
 
 export const AppHeader = () => {
   const { menuOpen, toggleMenu, setMenu } = useMenu();
@@ -185,11 +121,80 @@ export const AppHeader = () => {
           </div>
         </Transition>
       </Dialog>
+      <GalleryModal />
     </>
   );
 };
 
 const MenuNav = () => {
+  const setShowGalleryModalAtom = useSetAtom(showGalleryModalAtom);
+  const navList = [
+    {
+      en: "chronicle",
+      cn: "编年史",
+      url: "/",
+      click: () => {
+        window.open("/", "_self");
+      },
+    },
+    {
+      en: "home",
+      cn: "首页",
+      url: "/home",
+      click: () => {
+        window.open("/home", "_self");
+      },
+    },
+    {
+      en: "game introduction",
+      cn: "游戏介绍",
+      url: "/introduction",
+      click: () => {
+        window.open("/introduction", "_self");
+      },
+    },
+    {
+      en: "camp",
+      cn: "阵营",
+      url: "/alliance",
+      click: () => {
+        window.open("/alliance", "_self");
+      },
+    },
+    {
+      en: "starship",
+      cn: "星舰",
+      url: "/starship",
+      click: () => {
+        window.open("/starship", "_self");
+      },
+    },
+    {
+      en: "celestial body",
+      cn: "天体",
+      url: "/celestial_body",
+      click: () => {
+        window.open("/celestial_body", "_self");
+      },
+    },
+    {
+      en: "starwhisperer",
+      cn: "星语者",
+      url: "/starwhisperer",
+      click: () => {
+        window.open("/starwhisperer", "_self");
+      },
+    },
+    {
+      en: "gallery",
+      cn: "设定集",
+      url: "/gallery",
+      click: () => {
+        setShowGalleryModalAtom(true)
+      },
+    },
+  ];
+
   const [currentNav, setCurrentNav] = useState(0);
   const getRandomNumber = (min: string | number, max: string | number) => {
     min = parseInt(String(min));
