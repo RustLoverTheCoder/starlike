@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import gsap from "gsap";
 
 export const StarWhisperer = () => {
   const [active, setActive] = useState(0);
+  const whispererRef = useRef(null);
+  const bgRef = useRef(null);
   const list = [
     {
       id: "cpgu",
@@ -16,11 +19,35 @@ export const StarWhisperer = () => {
         "自从我们被迫离开了地球故乡，开始了千年的银河流浪，人类孤独地来到了无垠的宇宙之中。生存下来，是我们目前最关注的事情作为空间站的指挥官、我们必须面对多样复杂的各种突发事件、谨慎选择我们的策略来平衡民众、各大势力、血统、思潮、以及星语者的各种需求。同时我们必须守护着人类的火种，以及这文明数千年的约定",
     },
   ];
+
+  const handleMouseOver = (e: any) => {
+    let winWidth = window.innerWidth;
+    let winHeight = window.innerHeight;
+
+    let offsetXRate = 0.5 - e.pageX / winWidth; // 光标X轴位置
+    let offsetYRate = 0.5 - e.pageY / winHeight; // 光标Y轴位置
+    let distance = 10;
+    if (!whispererRef.current || !bgRef.current) {
+      return;
+    }
+    gsap.to(bgRef.current, 0.4, {
+      overwrite: true,
+      translateX: `${-offsetXRate * distance * 3}px`,
+      translateY: `${-offsetYRate * distance * 2}px`,
+    });
+    gsap.to(whispererRef.current, 0.4, {
+      overwrite: true,
+      translateX: `${-offsetXRate * distance * 6}px`,
+      translateY: `${-offsetYRate * distance * 4}px`,
+    });
+  };
+
   return (
-    <div className="w-screen h-screen relative overflow-hidden">
+    <div className="w-screen h-screen relative overflow-hidden" onMouseOver={handleMouseOver}>
       <img
         src={list[active]?.bg}
         alt=""
+        ref={bgRef}
         className="w-full h-full object-cover object-center"
         style={{ clipPath: "polygon(14% 0, 100% 0, 100% 100%, 36% 100%)" }}
       />
@@ -29,6 +56,7 @@ export const StarWhisperer = () => {
         <img
           src={list[active].whisperer}
           alt=""
+          ref={whispererRef}
           className="w-full object-contain"
         />
       </div>
@@ -36,7 +64,7 @@ export const StarWhisperer = () => {
         <img
           src="/images/starwhisperer/shadow.webp"
           alt=""
-          className="w-full object-cover object-right"
+          className="w-full h-full object-cover object-right"
         />
       </div>
       {/* info */}
