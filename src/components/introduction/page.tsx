@@ -41,7 +41,7 @@ const list = [
 ];
 
 export const IntroductionPage = () => {
-  const [current, setCurrent] = useState(1);
+  const [current, setCurrent] = useState(0);
   const data = list[current];
   const direction = data.direction;
   const screenshot1 = data.screenshot1;
@@ -77,7 +77,7 @@ export const IntroductionPage = () => {
           "absolute z-10",
           direction === "left"
             ? "top-[14vh] left-[12.7vw]"
-            : "top-[14vh] left-[12.7vw]"
+            : "top-[14vh] right-[12.7vw]"
         )}
       >
         <img src={screenshot2} alt="" className={screenshot1Width} />
@@ -88,44 +88,94 @@ export const IntroductionPage = () => {
           "absolute z-[11]",
           direction === "left"
             ? "top-[43vh] left-[20vw]"
-            : "top-[43vh] left-[20vw]"
+            : "top-[43vh] right-[20vw]"
         )}
       >
         <img src={screenshot1} alt="" className={screenshot2Width} />
       </div>
       {/* title */}
-      <div className="absolute left-0 top-[23vh] z-[12]">
-        <div className="pl-[6vw] flex items-center relative">
-          <div className="h-[120px] w-10 shadow-[0_0_10px_rgba(255,179,70,0.56),0_0_10px_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56)] mr-6 border-2 border-solid border-[#ffd790]"></div>
+      <div
+        className={cn(
+          "absolute top-[23vh] z-[12]",
+          direction === "left" ? "left-0" : "right-0"
+        )}
+      >
+        <div
+          className={cn(
+            "flex items-center relative",
+            direction === "left" ? "pl-[6vw]" : "pr-[6vw]"
+          )}
+        >
+          {direction === "left" && (
+            <div className="h-[120px] w-10 shadow-[0_0_10px_rgba(255,179,70,0.56),0_0_10px_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56)] mr-6 border-2 border-solid border-[#ffd790]"></div>
+          )}
           <div className="flex flex-col">
-            <div className="max-w-[376px] text-4xl text-left mb-[2vh]">
+            <div
+              className={cn(
+                "max-w-[376px] text-4xl mb-[2vh]",
+                direction === "left" ? "text-left" : "text-right"
+              )}
+            >
               {en}
             </div>
-            <div className="text-4xl text-left">{title}</div>
+            <div
+              className={cn(
+                "text-4xl",
+                direction === "left" ? "text-left" : "text-right"
+              )}
+            >
+              {title}
+            </div>
           </div>
+          {direction === "right" && (
+            <div className="h-[120px] w-10 shadow-[0_0_10px_rgba(255,179,70,0.56),0_0_10px_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56)] ml-6 border-2 border-solid border-[#ffd790]"></div>
+          )}
           <div
-            className="absolute text-[#FFE19E] text-[120px] -top-[60px] left-[90px]"
+            className={cn(
+              "absolute text-[#FFE19E] text-[120px] -top-[60px]",
+              direction === "left" ? "left-[90px]" : "right-[90px]"
+            )}
             style={{ textShadow: "0.5px 0.87px 5px #0000008F" }}
           >
             {id}
           </div>
         </div>
         <div className="w-[36vw] max-w-[704px] h-0.5 bg-[#765a2b] my-[2.8vh]" />
-        <div className="pl-[6vw] w-auto h-auto">
-          <div className="w-[15vw] max-w-[291px] text-lg text-right">
-            {titleInfo}
-          </div>
+        <div
+          className={cn(
+            " w-auto h-auto flex",
+            direction === "left"
+              ? "pl-[6vw] text-left justify-start"
+              : "pr-[6vw] text-right justify-end"
+          )}
+        >
+          <div className="w-[15vw] max-w-[291px] text-lg">{titleInfo}</div>
         </div>
       </div>
       {/* other */}
-      <div className="absolute right-0 bottom-[20vh] flex flex-col z-[13]">
-        <div className="flex flex-col">
+      <div
+        className={cn(
+          "absolute bottom-[20vh] flex flex-col z-[13]",
+          direction === "left" ? "right-0" : "left-0"
+        )}
+      >
+        <div
+          className={cn(
+            "flex flex-col",
+            direction === "left" ? "" : "pl-[5.4vw]"
+          )}
+        >
           <div className="text-3xl">{otherTitle}</div>
           <div className="text-4xl">{otherTitleSubTitle}</div>
         </div>
         {/* line */}
         <div className="w-[36vw] max-w-[704px] h-0.5 bg-[#765a2b] my-[2.8vh]" />
-        <div className="w-auto h-auto">
+        <div
+          className={cn(
+            "w-auto h-auto",
+            direction === "left" ? "" : "pl-[5.4vw]"
+          )}
+        >
           <div className="w-[27vw] max-w-[537px]">{otherInfo}</div>
         </div>
       </div>
