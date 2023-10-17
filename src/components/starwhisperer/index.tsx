@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
 import { FooterNav } from "@components/footerNav";
+import { cn } from "@utils/cn";
 
 export const StarWhisperer = () => {
   const [active, setActive] = useState(0);
@@ -91,7 +92,7 @@ export const StarWhisperer = () => {
         />
       </div>
       {/* info */}
-      <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-start items-center px-[120px]">
+      <div className="absolute top-0 left-0 right-0 bottom-0 flex justify-start items-center px-[13vw]">
         <div className="container max-w-[690px]">
           <div className="title w-full h-auto text-left flex justify-start items-center">
             <div className="h-[100px] w-10 shadow-[0_0_10px_rgba(255,179,70,0.56),0_0_10px_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56),0_0_10px_inset_rgba(255,179,70,0.56)] ml-6 border-2 border-solid border-[#ffd790]"></div>
@@ -118,6 +119,57 @@ export const StarWhisperer = () => {
         nav={item.nav}
         list={list}
       />
+      {/* nav */}
+      <PageNav active={active} />
+    </div>
+  );
+};
+
+const PageNav = ({ active }: { active: number }) => {
+  const list = [
+    {
+      id: 0,
+      title: "一体汉和",
+      en: "MOUTAINPASSFEDERATION",
+    },
+    {
+      id: 1,
+      title: "沙顿穆恩帝国",
+      en: "BATTLESHIP",
+    },
+    {
+      id: 2,
+      title: "芒廷帕斯联合会",
+      en: "BATTLESHIP",
+    },
+    {
+      id: 3,
+      title: "赛琳娜之耀",
+      en: "BATTLESHIP",
+    },
+    {
+      id: 4,
+      title: "圣瞳会",
+      en: "BATTLESHIP",
+    },
+  ];
+  return (
+    <div className="absolute left-[2vw] top-0 bottom-0 flex flex-col space-y-[4.6vh] justify-center">
+      {list.map((i) => {
+        const isActive = active === i.id
+        return (
+          <div
+            className={cn(
+              "w-full h-auto relative flex flex-col items-center text-[#5E5E5E] hover:text-[#FFE19E]",
+              isActive ? "text-[#FFE19E]" : ""
+            )}
+            key={i.id}
+          >
+            <div className={cn("text-xl")}>{i.title}</div>
+            <div className={cn("text-[13px]")}>{i.en}</div>
+          </div>
+        );
+      })}
     </div>
   );
 };
