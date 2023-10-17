@@ -110,7 +110,7 @@ export const AppHeader = () => {
             <Dialog.Panel as={Fragment}>
               <>
                 <div
-                  className="hy-close-area absolute -top-8 w-[400px] h-[200px] bg-[url(/images/menu/close\_area.png)] bg-no-repeat bg-center bg-contain right-0"
+                  className="hy-close-area absolute -top-8 w-[400px] h-[20vh] bg-[url(/images/menu/close\_area.png)] bg-no-repeat bg-center bg-contain right-0"
                   onClick={() => setMenu(false)}
                 >
                   <div className="hy-close-btn absolute w-[3px] h-[39px] bg-[#ffd776] shadow-[0_0_8px_#ff8d28,0_0_8px_#ff8d28] right-9 top-24" />
@@ -211,9 +211,9 @@ const MenuNav = () => {
   };
 
   return (
-    <div className="absolute w-auto top-[168px] bottom-0 right-0">
-      <div className="hy-nav-line absolute w-0.5 h-[82%] bg-[linear-gradient(to_bottom,rgba(116,96,54,0)_0%,#746036_3%,#746036_85%,rgba(116,96,54,0)_100%)] right-9" />
-      <div className="hy-nav-wrapper flex flex-col gap-11 mr-9">
+    <div className="absolute w-auto top-[16vh] bottom-0 right-0">
+      <div className="hy-nav-line absolute w-0.5 h-[100%] bg-[linear-gradient(to_bottom,rgba(116,96,54,0)_0%,#746036_3%,#746036_85%,rgba(116,96,54,0)_100%)] right-9" />
+      <div className="hy-nav-wrapper flex flex-col space-y-8 mr-9">
         {navList.map((item, index) => (
           <div
             onMouseOver={() => setCurrentNav(index)}
