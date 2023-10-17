@@ -120,12 +120,14 @@ export const StarWhisperer = () => {
         list={list}
       />
       {/* nav */}
-      <PageNav active={active} />
+      <PageNav />
     </div>
   );
 };
 
-const PageNav = ({ active }: { active: number }) => {
+const PageNav = () => {
+  const [pageActive, setPageActive] = useState(0);
+
   const list = [
     {
       id: 0,
@@ -154,22 +156,25 @@ const PageNav = ({ active }: { active: number }) => {
     },
   ];
   return (
-    <div className="absolute left-[2vw] top-0 bottom-0 flex flex-col space-y-[4.6vh] justify-center">
-      {list.map((i) => {
-        const isActive = active === i.id
-        return (
-          <div
-            className={cn(
-              "w-full h-auto relative flex flex-col items-center text-[#5E5E5E] hover:text-[#FFE19E]",
-              isActive ? "text-[#FFE19E]" : ""
-            )}
-            key={i.id}
-          >
-            <div className={cn("text-xl")}>{i.title}</div>
-            <div className={cn("text-[13px]")}>{i.en}</div>
-          </div>
-        );
-      })}
+    <div className="absolute left-[1.5vw] top-0 bottom-0 flex flex-col space-y-[4.6vh] justify-center">
+      <div className="relative w-auto h-auto flex flex-col space-y-[4.6vh]">
+        {list.map((i) => {
+          const isActive = pageActive === i.id;
+          return (
+            <div
+              className={cn(
+                "w-full h-auto relative flex flex-col items-center text-[#5E5E5E] hover:text-[#FFE19E] transition-all cursor-pointer duration-300",
+                isActive ? "text-[#FFE19E] translate-x-1.5" : "hover:translate-x-1.5"
+              )}
+              onClick={() => setPageActive(i.id)}
+              key={i.id}
+            >
+              <div className={cn("text-xl")}>{i.title}</div>
+              <div className={cn("text-[13px]")}>{i.en}</div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
