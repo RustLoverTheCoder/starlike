@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import gsap from "gsap";
+import { FooterNav } from "@components/footerNav";
 
 export const StarWhisperer = () => {
   const [active, setActive] = useState(0);
@@ -8,7 +9,23 @@ export const StarWhisperer = () => {
   const list = [
     {
       id: "cpgu",
+      nav: "01",
       bg: "/images/starwhisperer/cpgu-bg.webp",
+      bg2: "/images/starwhisperer/cpgu-bg2.webp",
+      whisperer: "/images/starwhisperer/cpgu-whisperer.webp",
+      name: "萨卡林.梅森",
+      subTitle: "SAKLIN.MEISE",
+      image: "/images/celestial/行星状星云.webp",
+      infoMain:
+        "“舰种搭配、阵型调整、舰长组合.优秀的执政官总是能制定出最合时宜的舰队策略而在战场上”",
+      infoSub:
+        "自从我们被迫离开了地球故乡，开始了千年的银河流浪，人类孤独地来到了无垠的宇宙之中。生存下来，是我们目前最关注的事情作为空间站的指挥官、我们必须面对多样复杂的各种突发事件、谨慎选择我们的策略来平衡民众、各大势力、血统、思潮、以及星语者的各种需求。同时我们必须守护着人类的火种，以及这文明数千年的约定",
+    },
+    {
+      id: "cpgu",
+      nav: "02",
+      bg: "/images/starwhisperer/cpgu-bg.webp",
+      bg2: "/images/starwhisperer/cpgu-bg2.webp",
       whisperer: "/images/starwhisperer/cpgu-whisperer.webp",
       name: "萨卡林.梅森",
       subTitle: "SAKLIN.MEISE",
@@ -19,6 +36,8 @@ export const StarWhisperer = () => {
         "自从我们被迫离开了地球故乡，开始了千年的银河流浪，人类孤独地来到了无垠的宇宙之中。生存下来，是我们目前最关注的事情作为空间站的指挥官、我们必须面对多样复杂的各种突发事件、谨慎选择我们的策略来平衡民众、各大势力、血统、思潮、以及星语者的各种需求。同时我们必须守护着人类的火种，以及这文明数千年的约定",
     },
   ];
+
+  const item = list[active];
 
   const handleMouseOver = (e: any) => {
     let winWidth = window.innerWidth;
@@ -43,7 +62,11 @@ export const StarWhisperer = () => {
   };
 
   return (
-    <div className="w-screen h-screen relative overflow-hidden" onMouseOver={handleMouseOver}>
+    <div
+      className="w-screen h-screen relative overflow-hidden object-cover object-left"
+      onMouseOver={handleMouseOver}
+      style={{ backgroundImage: `url(${list[active]?.bg2})` }}
+    >
       <img
         src={list[active]?.bg}
         alt=""
@@ -89,6 +112,12 @@ export const StarWhisperer = () => {
           </div>
         </div>
       </div>
+      <FooterNav
+        current={active}
+        setCurrent={setActive}
+        nav={item.nav}
+        list={list}
+      />
     </div>
   );
 };
