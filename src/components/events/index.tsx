@@ -6,7 +6,6 @@ import { autoPlacement, computePosition, offset } from "@floating-ui/dom";
 import gasp, { Power3, TweenMax } from "gsap";
 import { useRafInterval } from "ahooks";
 import "./index.css";
-import useEffectWithPrevDeps from "@hooks/useEffectWithPrevDeps";
 
 type EventType = {
   id: number;
@@ -356,7 +355,7 @@ export const Events = () => {
   const infoRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLImageElement>(null);
   const nextYear = useAtomValue(nextYearAtom);
-  const timer = useAtomValue(timerAtom)
+  const timer = useAtomValue(timerAtom);
 
   const startAnimation = () => {
     const timeline = gasp.timeline();
@@ -466,7 +465,7 @@ export const Events = () => {
           opacity: 0.2,
           ease: easeType,
           onComplete() {
-            // sectionBeforeStart()
+            sectionForwardStart();
           },
         }
       ),
@@ -474,9 +473,65 @@ export const Events = () => {
     );
   };
 
+  const sectionForwardStart = () => {
+    setYear(nextYear);
+    requestAnimationFrame(() => {
+      const textEl = infoRef.current;
+      const bgEl = bgRef.current;
+      if (!textEl || !bgEl) {
+        return;
+      }
+      textEl.removeAttribute("style");
+      bgEl.removeAttribute("style");
+
+      let time = 0.3;
+      let timeline = gasp.timeline();
+
+      // 时间线配置
+      timeline.set([textEl, bgEl], {
+        // 初始化视距
+        transformPerspective: 1000,
+      });
+
+      timeline.add(
+        TweenMax.fromTo(
+          bgEl,
+          time,
+          {
+            immediateRender: true,
+            z: "-2vh",
+            opacity: 0,
+            ease: Power3.easeOut,
+          },
+          {
+            z: "0vh",
+            opacity: 1,
+          }
+        ),
+        0
+      );
+      timeline.add(
+        TweenMax.fromTo(
+          textEl,
+          time,
+          {
+            immediateRender: true,
+            z: "-7vh",
+            opacity: 0,
+          },
+          {
+            z: "0vh",
+            opacity: 1,
+          }
+        ),
+        0
+      );
+    });
+  };
+
   useRafInterval(() => {
     // 执行下一个动画
-    sectionForwardTransition()
+    sectionForwardTransition();
   }, timer);
 
   // tooltip
