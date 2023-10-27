@@ -73,7 +73,7 @@ export const LoginModal = () => {
                     <div className="text-white flex items-center">
                       已阅读并同意
                       <span
-                        className="text-white hover:text-[#af9465]"
+                        className="text-white hover:text-[#af9465] cursor-pointer"
                         onClick={() => setIsOpen(true)}
                       >
                         《影之月网络用户注册协议》
@@ -121,7 +121,7 @@ export const LoginModal = () => {
           <div className="flex min-h-full items-center justify-center p-4">
             {/* The actual dialog panel  */}
             <Dialog.Panel
-              className="mx-auto w-[600px] h-[700px] max-h-[80vh] relative flex flex-col  overflow-y-auto"
+              className="mx-auto w-[800px] h-[700px] max-h-[80vh] relative flex flex-col  overflow-y-auto"
               style={{
                 backgroundImage: "url(/images/home/bg_1.webp)",
               }}
