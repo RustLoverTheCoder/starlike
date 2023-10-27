@@ -11,7 +11,7 @@ import { showGalleryModalAtom } from "./atoms";
 
 export const AppHeader = () => {
   const { menuOpen, toggleMenu, setMenu } = useMenu();
-  const { user, panelOpen, updatePanel, logout } = useUser();
+  const { user, panelOpen, updatePanel, logout, setType } = useUser();
 
   const handleShowPanel = (m: boolean) => {
     updatePanel(m);
@@ -34,7 +34,10 @@ export const AppHeader = () => {
             <>
               <div
                 className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center"
-                onClick={() => handleShowPanel(true)}
+                onClick={() => {
+                  setType('login')
+                  handleShowPanel(true)
+                }}
               >
                 <img
                   src="/images/common/icon_login.png"
@@ -44,7 +47,10 @@ export const AppHeader = () => {
                 登录
               </div>
               <div
-                onClick={() => handleShowPanel(true)}
+                onClick={() => {
+                  setType('signOut')
+                  handleShowPanel(true)
+                }}
                 className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center"
               >
                 <img
@@ -190,7 +196,7 @@ const MenuNav = () => {
       cn: "设定集",
       url: "/gallery",
       click: () => {
-        setShowGalleryModalAtom(true)
+        setShowGalleryModalAtom(true);
       },
     },
   ];

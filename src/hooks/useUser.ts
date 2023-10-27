@@ -8,10 +8,12 @@ export type User = {
 };
 
 const panelAtom = atom(false);
+const typeAtom = atom<"login" | "signOut">("login");
 
 export function useUser() {
   const [user, setUser] = useState<User | null>(null);
   const [panel, setPanel] = useAtom(panelAtom);
+  const [type, setType] = useAtom(typeAtom)
 
   const updatePanel = (status: boolean) => {
     setPanel(status);
@@ -38,5 +40,7 @@ export function useUser() {
     updateUser,
     login,
     logout,
+    type,
+    setType
   };
 }
