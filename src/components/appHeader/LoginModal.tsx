@@ -6,6 +6,8 @@ export const LoginModal = () => {
   const { panelOpen, updatePanel, type } = useUser();
   const [isRead, setIsRead] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [formType, setFormType] = useState<"email" | "phone">("email");
+  
   return (
     <>
       {/* user */}
@@ -35,17 +37,51 @@ export const LoginModal = () => {
                 </div>
                 {/* form */}
                 <form className="flex flex-col space-y-7 w-full">
-                  {/* phone */}
-                  <div className="flex flex-col space-y-2 items-start">
-                    <div className="text-[15px]">手机号：</div>
-                    <div className="w-full border-b border-white">
-                      <input
-                        type="text"
-                        className="w-full text-[15px] bg-transparent outline-none"
-                        placeholder="请输入你的手机号"
-                      />
-                    </div>
-                  </div>
+                  {type === "signOut" && (
+                    <>
+                      {/* username */}
+                      <div className="flex flex-col space-y-2 items-start">
+                        <div className="text-[15px]">用户名：</div>
+                        <div className="w-full border-b border-white">
+                          <input
+                            type="text"
+                            className="w-full text-[15px] bg-transparent outline-none"
+                            placeholder="请输入你的用户名"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  )}
+                  {formType === "email" ? (
+                    <>
+                      {/* email */}
+                      <div className="flex flex-col space-y-2 items-start">
+                        <div className="text-[15px]">邮箱：</div>
+                        <div className="w-full border-b border-white">
+                          <input
+                            type="text"
+                            className="w-full text-[15px] bg-transparent outline-none"
+                            placeholder="请输入你的邮箱"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      {/* phone */}
+                      <div className="flex flex-col space-y-2 items-start">
+                        <div className="text-[15px]">手机号：</div>
+                        <div className="w-full border-b border-white">
+                          <input
+                            type="text"
+                            className="w-full text-[15px] bg-transparent outline-none"
+                            placeholder="请输入你的手机号"
+                          />
+                        </div>
+                      </div>
+                    </>
+                  )}
+
                   {/* code */}
                   <div className="flex flex-col space-y-2 items-start">
                     <div className="text-[15px]">密码：</div>
@@ -63,23 +99,36 @@ export const LoginModal = () => {
                     </div>
                   </div>
                   {/* checkbox */}
-                  <div className="w-full flex items-center space-x-1.5 text-xs leading-[1.5] tracking-normal">
-                    <div
-                      className="w-3 h-3 flex justify-center items-center border border-white cursor-pointer"
-                      onClick={() => setIsRead(!isRead)}
-                    >
-                      {isRead && <div className="w-1.5 h-1.5 bg-white"></div>}
-                    </div>
-                    <div className="text-white flex items-center">
-                      已阅读并同意
-                      <span
-                        className="text-white hover:text-[#af9465] cursor-pointer"
-                        onClick={() => setIsOpen(true)}
+                  <div className="w-full flex flex-col  space-y-2 text-xs leading-[1.5] tracking-normal">
+                    <div className="w-full flex items-center  space-x-1.5">
+                      <div
+                        className="w-3 h-3 flex justify-center items-center border border-white cursor-pointer"
+                        onClick={() => setIsRead(!isRead)}
                       >
-                        《影之月网络用户注册协议》
-                      </span>
+                        {isRead && <div className="w-1.5 h-1.5 bg-white"></div>}
+                      </div>
+                      <div className="text-white flex items-center">
+                        已阅读并同意
+                        <span
+                          className="text-white hover:text-[#af9465] cursor-pointer"
+                          onClick={() => setIsOpen(true)}
+                        >
+                          《影之月网络用户注册协议》
+                        </span>
+                      </div>
+                    </div>
+                    {/* swith */}
+                    <div
+                      className="w-full text-xs leading-[1.5] tracking-normal text-white hover:text-[#af9465] text-left cursor-pointer"
+                      onClick={() => {
+                        setFormType(formType === "email" ? "phone" : "email");
+                      }}
+                    >
+                      {formType === "email" ? "用手机号" : "用邮箱"}
+                      {type === "login" ? "登录" : "注册"}
                     </div>
                   </div>
+
                   <div className="w-full h-10 flex justify-center items-center space-x-12 pt-5">
                     <div
                       className="w-[108px] h-10 border-white border text-xs flex justify-center items-center cursor-pointer hover:text-[#af9465] hover:border-[#af9465] transition-all"

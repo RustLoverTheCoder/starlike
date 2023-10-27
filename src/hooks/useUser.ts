@@ -13,7 +13,7 @@ const typeAtom = atom<"login" | "signOut">("login");
 export function useUser() {
   const [user, setUser] = useState<User | null>(null);
   const [panel, setPanel] = useAtom(panelAtom);
-  const [type, setType] = useAtom(typeAtom)
+  const [type, setType] = useAtom(typeAtom);
 
   const updatePanel = (status: boolean) => {
     setPanel(status);
@@ -33,6 +33,54 @@ export function useUser() {
     updatePanel(false);
   };
 
+  const signOutEmail = ({
+    email,
+    password,
+    username,
+  }: {
+    email: string;
+    password: string;
+    username: string;
+  }) => {
+    if (!email || !password || !username) {
+      return;
+    }
+    // fetch post
+    fetch("/api/v1/auth/email/register", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+        password,
+        username,
+      }),
+    });
+  };
+
+  const signOutPhone = ({
+    phoneNumber,
+    password,
+    username,
+  }: {
+    phoneNumber: string;
+    password: string;
+    username: string;
+  }) => {
+    if (!phoneNumber || !password || !username) {
+      return;
+    }
+    // fetch post
+    fetch("/api/v1/auth/email/register", {
+      method: "POST",
+      body: JSON.stringify({
+        phoneNumber: phoneNumber.includes("+86")
+          ? phoneNumber
+          : "+86" + phoneNumber,
+        password,
+        username,
+      }),
+    });
+  };
+
   return {
     user,
     panelOpen: panel,
@@ -41,6 +89,8 @@ export function useUser() {
     login,
     logout,
     type,
-    setType
+    setType,
+    signOutEmail,
+    signOutPhone
   };
 }
