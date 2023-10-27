@@ -1,13 +1,28 @@
 import { Dialog } from "@headlessui/react";
 import { useUser } from "@hooks/useUser";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 export const LoginModal = () => {
-  const { panelOpen, updatePanel, type } = useUser();
+  const {
+    panelOpen,
+    updatePanel,
+    type,
+    signOutEmail,
+    signOutPhone,
+    loginEmail,
+    loginPhone,
+  } = useUser();
   const [isRead, setIsRead] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [formType, setFormType] = useState<"email" | "phone">("email");
-  
+  const [form, setForm] = useState({
+    phoneNumber: undefined,
+    email: undefined,
+    password: undefined,
+    username: undefined,
+  });
+
   return (
     <>
       {/* user */}
@@ -45,8 +60,13 @@ export const LoginModal = () => {
                         <div className="w-full border-b border-white">
                           <input
                             type="text"
+                            value={form.username}
                             className="w-full text-[15px] bg-transparent outline-none"
                             placeholder="请输入你的用户名"
+                            onInput={(e) => {
+                              // @ts-ignore
+                              setForm({ ...form, username: e.target.value });
+                            }}
                           />
                         </div>
                       </div>
@@ -60,8 +80,13 @@ export const LoginModal = () => {
                         <div className="w-full border-b border-white">
                           <input
                             type="text"
+                            value={form.email}
                             className="w-full text-[15px] bg-transparent outline-none"
                             placeholder="请输入你的邮箱"
+                            onInput={(e) => {
+                              // @ts-ignore
+                              setForm({ ...form, email: e.target.value });
+                            }}
                           />
                         </div>
                       </div>
@@ -74,8 +99,13 @@ export const LoginModal = () => {
                         <div className="w-full border-b border-white">
                           <input
                             type="text"
+                            value={form.phoneNumber}
                             className="w-full text-[15px] bg-transparent outline-none"
                             placeholder="请输入你的手机号"
+                            onInput={(e) => {
+                              // @ts-ignore
+                              setForm({ ...form, phoneNumber: e.target.value });
+                            }}
                           />
                         </div>
                       </div>
@@ -88,9 +118,14 @@ export const LoginModal = () => {
                     <div className="flex w-full items-center space-x-2">
                       <div className="w-full border-b border-white">
                         <input
-                          type="text"
+                          value={form.password}
                           className="w-full text-[15px] bg-transparent outline-none"
                           placeholder="请输入你的密码"
+                          type='password'
+                          onInput={(e) => {
+                            // @ts-ignore
+                            setForm({ ...form, password: e.target.value });
+                          }}
                         />
                       </div>
                       {/* <div className="w-[90px] h-[30px] flex-shrink-0 border border-white text-xs flex justify-center items-center cursor-pointer hover:text-[#af9465] hover:border-[#af9465] transition-all">
@@ -141,7 +176,27 @@ export const LoginModal = () => {
                     <div
                       className="w-[108px] h-10 border-white border text-xs flex justify-center items-center cursor-pointer hover:text-[#af9465] hover:border-[#af9465] transition-all"
                       onClick={() => {
-                        updatePanel(false);
+                        if (isRead) {
+                          if (formType === "email") {
+                            if (type === "login") {
+                              // email login
+                              loginEmail(form);
+                            } else {
+                              // email register
+                              signOutEmail(form)
+                            }
+                          } else {
+                            if (type === "login") {
+                              // phone login
+                              loginPhone(form);
+                            } else {
+                              // phone register
+                              signOutPhone(form)
+                            }
+                          }
+                        } else {
+                          toast.error("请先阅读并同意用户协议");
+                        }
                       }}
                     >
                       <div>{type === "login" ? "登录" : "注册"}</div>

@@ -8,6 +8,7 @@ import "./AppHeader.css";
 import { GalleryModal } from "./galleryModal";
 import { useAtom, useSetAtom } from "jotai";
 import { showGalleryModalAtom } from "./atoms";
+import { Toaster } from "react-hot-toast";
 
 export const AppHeader = () => {
   const { menuOpen, toggleMenu, setMenu } = useMenu();
@@ -17,10 +18,6 @@ export const AppHeader = () => {
     updatePanel(m);
   };
 
-  const handleLogout = () => {
-    updatePanel(false);
-    logout();
-  };
   return (
     <>
       <header
@@ -30,13 +27,13 @@ export const AppHeader = () => {
       >
         <Logo />
         <div className="hy-tools flex items-center space-x-3">
-          {!user && (
+          {!user ? (
             <>
               <div
                 className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center"
                 onClick={() => {
-                  setType('login')
-                  handleShowPanel(true)
+                  setType("login");
+                  handleShowPanel(true);
                 }}
               >
                 <img
@@ -48,8 +45,8 @@ export const AppHeader = () => {
               </div>
               <div
                 onClick={() => {
-                  setType('signOut')
-                  handleShowPanel(true)
+                  setType("signOut");
+                  handleShowPanel(true);
                 }}
                 className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center"
               >
@@ -61,11 +58,27 @@ export const AppHeader = () => {
                 注册
               </div>
             </>
+          ) : (
+            <>
+              <div className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center">
+                <img
+                  src="/images/common/icon_user.png"
+                  alt=""
+                  className="w-4 h-4 mr-2"
+                />
+                {user?.username}
+              </div>
+              <div className="relative text-[white] hover:text-[#dab061] tracking-wider transition-all duration-[0.3s] flex items-center" onClick={() => {
+                logout()
+              }}>
+                注销
+              </div>
+            </>
           )}
+
           <div
             className={`hy-menu_enter h-3 w-5 relative group`}
             onClick={() => {
-              console.log("1");
               toggleMenu();
             }}
           >
@@ -128,6 +141,7 @@ export const AppHeader = () => {
         </Transition>
       </Dialog>
       <GalleryModal />
+      <Toaster />
     </>
   );
 };
