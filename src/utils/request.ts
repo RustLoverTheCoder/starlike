@@ -20,7 +20,7 @@ export const request = async ({
   let res;
   if (method === "POST") {
     try {
-      res = await fetch("http://localhost:3000" + url, {
+      res = await fetch(url, {
         method: method,
         headers: headers,
         body: JSON.stringify(data),
@@ -30,7 +30,7 @@ export const request = async ({
     }
   } else {
     const urlParams = new URLSearchParams(data).toString();
-    const newUrl = `http://localhost:3000${url}?${urlParams}`;
+    const newUrl = `${url}?${urlParams}`;
     try {
       res = await fetch(newUrl, {
         method: method,

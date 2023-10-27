@@ -194,6 +194,7 @@ export const LoginModal = () => {
                               signOutPhone(form)
                             }
                           }
+                          updatePanel(false);
                         } else {
                           toast.error("请先阅读并同意用户协议");
                         }
